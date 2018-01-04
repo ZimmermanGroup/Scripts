@@ -1,0 +1,18 @@
+#PBS -t 
+#PBS -l nodes=1:ppn=4 -l walltime=24:00:00
+#PBS -e error -o output -N 
+#PBS -m e
+#PBS -M 
+#PBS -q zimmerman
+
+ID=`printf "%0*d\n" 2 ${PBS_ARRAYID}`
+
+source /home/paulzim/qchem/qchemmay142015/paul.set.local
+
+export OMP_NUM_THREADS=1
+cd $PBS_O_WORKDIR
+name=`ls q$ID*.inp`
+name_out=`echo $name | cut -d'.' -f2`
+qchem -np 4 $name $ID.$name_out.out
+
+rm $QCSCRATCH
