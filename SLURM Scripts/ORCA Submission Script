@@ -1,0 +1,31 @@
+#!/bin/bash
+
+echo "setting up go script "
+file=orca_run.sh
+
+echo "#SBATCH --array=" >> $file
+echo "#SBATCH --nodes=1" >> $file
+echo "#SBATCH --ntasks=1" >> $file
+echo "#SBATCH --time=30:00:00" >> $file
+echo "#SBATCH -e `pwd` -o `pwd`" >> $file 
+echo "#SBATCH -p guest --job-name=H2Wb.qsh" >> $file
+echo " " >> $file
+echo "time" >> $file
+echo " " >> $file
+echo ". /etc/profile.d/slurm.sh" >> $file
+echo " " >> $file
+echo 'ID=`printf "%0*d\n" 4 ${SLURM_ARRAY_TASK_ID}`' >> $file
+echo 'cd $SLURM_SUBMIT_DIR' >> $file
+echo 'name=`ls q$ID.*.inp`' >> $file
+echo " " >> $file
+echo "module unload Openmpi" >> $file
+echo 'shtcut="/export/applications"' >>  $file
+echo " " >> $file
+echo 'export LD_LIBRARY_PATH=/export/apps/Intel/composer_xe_2013.4.183/compiler/lib/intel64:/export/zimmerman/khyungju/OpenMPI/2.0.2/lib:$LD_LIBRARY_PATH' >> $file
+echo 'export PATH=//export/zimmerman/khyungju/OpenMPI/2.0.2/bin:$PATH' >> $file
+echo " " >> $file
+echo 'cp $name $SLURM_LOCAL_SCRATCH' >> $file
+echo 'cd $SLURM_LOCAL_SCRATCH' >> $file
+echo '/export/zimmerman/khyungju/orca_4_0_0_2_linux_x86-64/orca $name > $SLURM_SUBMIT_DIR/$name.out' >> $file
+echo " " >> $file
+echo "wait" >> $file
