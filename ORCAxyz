@@ -1,0 +1,25 @@
+#!/bin/bash
+
+mkdir xyzFiles
+
+for f in *out
+do
+
+	awk '/FINAL ENERGY EVALUATION/,/^$/' $f >> $f.tmp	
+	awk 'NR>6' $f.tmp > $f.xyz
+
+	sed '$d' $f.xyz > $f.remove
+
+	awk 'END {print NR}' $f.remove  > $f.num
+
+	rm -f $f.tmp $f.xyz
+
+	echo " " >> $f.num
+	cat $f.num $f.remove > $f.xyz
+
+	rm -f $f.num $f.remove
+
+	mv *xyz ./xyzFiles
+
+done
+
