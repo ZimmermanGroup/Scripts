@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH --array=2
+#SBATCH -N 1 --ntasks-per-node=2 --time=1-00:00:00
+#SBATCH -e error -o output
+#SBATCH -p guest --job-name=DFormOpt
+#SBATCH --mail-type=END
+#SBATCH --mail-user=kevincs@umich.edu
+
+. /etc/profile.d/slurm.sh
+
+item=$SLURM_ARRAY_TASK_ID
+ID=`printf "%0*d\n" 2 ${item}`
+
+hostname
+source /home/paulzim/qchem/qchemmay142015g/paul.set.local0
+
+export OMP_NUM_THREADS=1
+
+name=`ls q$ID*.inp`
+name_out=`echo $name | cut -d'.' -f2`
+qchem -np 2 $name $ID.$name_out.out
+
+rm $QCSCRATCH
