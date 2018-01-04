@@ -1,0 +1,20 @@
+#! /bin/bash
+
+qJobAry=`ls *.xyz`
+
+counter=1
+
+for item in $qJobAry
+do  
+  name=`echo $item | cut -d'.' -f1`
+  prefix=`printf %03d.%s $counter`
+  inpName="q${prefix}${name}.com"
+
+  echo $inpName
+
+  tail -n+3 $item > tempFile
+  cat sample.inp tempFile end.inp >> $inpName
+  rm tempFile
+
+  let counter=counter+1
+done

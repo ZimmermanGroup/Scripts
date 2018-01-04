@@ -1,7 +1,8 @@
 #!/bin/bash
 #This file was created on 01/04/2018
-#create gifs of chemical reaction in molden using "movie button" called mol???.gif
-#takes 1 variable which is the number of gifs you want i.e. 11
+#creates a transparent animated gif going forwards and backwards
+#Usage: first create gifs of chemical reaction in molden using "movie button" 
+#takes 1 variable which is the number of gifs in sequence 
 
 let var=0
 for i in $(seq $1 -1 1); 

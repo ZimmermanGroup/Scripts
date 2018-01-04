@@ -1,0 +1,41 @@
+#!/bin/bash
+qJobAry=`ls *.out`
+# this script takes the output of a qchem optimizations and gets the last geometry and saves it in a new directory called xyzFiles.
+
+mkdir xyzFiles
+
+for item in $qJobAry
+do
+  lineEnd=`grep -n "END OF MOLDEN-FORMATTED" $item | grep -Eo '^[^:]+'`
+  if [ -z "$lineEnd" ];
+  then
+    continue
+  fi
+
+  lineEndm1=$(($lineEnd-1))
+
+  outFileName=$item
+  outFileName+=".xyz"
+  echo "outFileName: $outFileName"
+
+  alist=`grep -A 1 "NAtoms" $item`
+
+  x=0
+  for thing in $alist
+  do
+    if [ $x -eq 8 ]
+    then
+      echo $thing
+      numAtoms=$thing
+    fi
+    let x=x+1
+  done
+
+  let lineStart=lineEndm1-numAtoms-3
+
+  lineStart=$(($lineEnd-$numAtoms-3))
+  csplit $item $lineStart $lineEndm1
+  mv xx01 "xyzFiles/$outFileName"
+done
+
+rm xx*
