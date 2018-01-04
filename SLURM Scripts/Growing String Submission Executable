@@ -4,7 +4,7 @@ echo "setting up SLURM"
 file=scratch/go_gsm_dft.sbatch
 
 rm -f scratch/gsmdone*
-#rm -f scratch/paragsm*
+#rm -f scratch/paragsm* 
 #rm -f scratch/tsq*
 
 cat scratch/go_gsm_dft > $file
