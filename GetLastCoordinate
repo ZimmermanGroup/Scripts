@@ -1,0 +1,62 @@
+#This script is for printing the last coordinate of a geometry optimization and printing it into a .last file in a nerw coordinate directory
+#Paul gave me this script, and I have modified it since then (lines 6, 59) so I do not know what each line does
+#Please annotate what you know
+
+#!/bin/bash
+
+mkdir coordinate
+
+if [ ! -f $1 ]
+then
+  echo $1 "does not exist"
+  exit
+fi
+
+file=$1
+
+endm=`grep -n "Standard Nuclear Orientation" $file`
+
+i=0
+for line in $endm
+do
+  if [ $i -eq 0 ]
+  then
+    #echo "saving: $line "
+    final=$line
+  fi
+  if [ $i -eq 4 ]
+  then
+    i=-1
+  fi
+
+  let i=i+1
+done
+
+gdata=$(echo $final | tr ":" " ")
+#echo "gdata: $gdata"
+
+ends=gdata+2
+
+alist=`grep -A 1 "NAtoms" $file`
+
+x=0
+for item in $alist
+do
+  if [ $x -eq 8 ]
+  then
+    #echo $item
+    natoms=$item
+  fi
+  let x=x+1
+done
+
+let cstart=ends
+let cend=ends+2+natoms
+csplit -s $file $cstart $cend
+
+echo "$natoms" > $file.last
+awkx xx01 >> $file.last
+
+mv $file.last coordinate
+
+rm xx00 xx01 xx02
