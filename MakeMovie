@@ -1,6 +1,8 @@
 #This script is to make a file containing the geometries, forces, steps, and energies after a geometry optimization
 #This can be used to visualize the trajectory of the minimization
 
+#This script was used for qchemmay142015
+
 #!/bin/bash
 
 mkdir movie
