@@ -2,6 +2,8 @@
 #Paul gave me this script, and I have modified it since then (lines 6, 59) so I do not know what each line does
 #Please annotate what you know
 
+#This script was used for qchemmay142015
+
 #!/bin/bash
 
 mkdir coordinate
