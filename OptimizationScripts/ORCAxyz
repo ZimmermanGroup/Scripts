@@ -1,3 +1,5 @@
+#This script is for printing the final, optimized geometry from an ORCA optimization
+
 #!/bin/bash
 
 mkdir xyzFiles
@@ -5,21 +7,20 @@ mkdir xyzFiles
 for f in *out
 do
 
-	awk '/FINAL ENERGY EVALUATION/,/^$/' $f >> $f.tmp	
-	awk 'NR>6' $f.tmp > $f.xyz
+	awk '/FINAL ENERGY EVALUATION/,/^$/' $f >> $f.tmp	#Prints lines containing phrase until next empty line
+	awk 'NR>6' $f.tmp > $f.xyz	#Grabs just the xyz coordinates
 
-	sed '$d' $f.xyz > $f.remove
+	sed '$d' $f.xyz > $f.remove	#Remove the last line of the file
 
-	awk 'END {print NR}' $f.remove  > $f.num
+	awk 'END {print NR}' $f.remove  > $f.num	#Count the number of lines in the file
 
 	rm -f $f.tmp $f.xyz
 
-	echo " " >> $f.num
-	cat $f.num $f.remove > $f.xyz
+	echo " " >> $f.num 	#Adds a space to the end of file
+	cat $f.num $f.remove > $f.xyz	#Combines the files to generate molden friendly .xyz input
 
 	rm -f $f.num $f.remove
 
 	mv *xyz ./xyzFiles
 
 done
-
