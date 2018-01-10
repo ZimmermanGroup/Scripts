@@ -1,0 +1,21 @@
+#This script is to make a file containing the geometries, forces, steps, and energies after a geometry optimization
+#This can be used to visualize the trajectory of the minimization
+
+#!/bin/bash
+
+mkdir movie
+
+for f in *out
+do
+        sed -n -e '/MOLDEN-FORMATTED INPUT FILE FOLLOWS/,$p' $f > $f.tmp        #Searches file until phrase and then writes it from there until the end in a new file
+
+        sed '1d' $f.tmp > $f.remove     #Removes the first line of the file
+
+        rm -f $f.tmp
+
+        sed '/END OF MOLDEN-FORMATTED INPUT FILE/,$d' $f.remove > $f.movie      #This removes all lines after the phrase
+
+        rm -f $f.remove
+
+        mv $f.movie movie
+done
