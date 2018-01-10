@@ -1,0 +1,66 @@
+#This script converts a .xyz file to a CHARMM formatted .pdb file
+#If the files are not formatted properly, CHARMM calculations will crash
+
+#!/bin/bash
+
+# f is using Babel to convert .xyz to .pdb
+# g is using grep to remove lines w/a particular phrase
+# h is for converting HETATM to ATOM  (plus two spaces)
+# i is for removing the 11th column, but retaining the table format (otherwise the file is no good)
+# j is for adding a new 11th column w/the correct formatting (six spaces)
+
+module load Babel/2.3.2
+
+mkdir backup
+
+cp *xyz backup
+
+for f in *xyz
+do
+
+        babel $f -opdb -m
+
+        mv *pdb new.pdb
+
+done
+
+for g in new.pdb
+do
+
+        grep -v "\bCOMPND\b" $g > $g.tmp
+        grep -v "\bAUTHOR\b" $g.tmp > $g.tmp.tmp
+        grep -v "\bCONECT\b" $g.tmp.tmp > $g.tmp.tmp.tmp
+        grep -v "\bMASTER\b" $g.tmp.tmp.tmp > $g.tmp.tmp.tmp.tmp
+        grep -v "\bEND\b" $g.tmp.tmp.tmp.tmp > new.pdb
+
+        rm -f $g.tmp $g.tmp.tmp $g.tmp.tmp.tmp $g.tmp.tmp.tmp.tmp
+
+done
+
+for h in new.pdb
+do
+
+        sed -i -e 's/HETATM/ATOM  /g' $h
+
+done
+
+for i in new.pdb
+do
+
+        awk '{ printf "%-10s%-3d%-4s%-8s%-1d      %6.3f  %6.3f  %6.3f  %-4.2f  %-4.2f\n", $1,$2,$3,$4,$5,$6,$7,$8,$9,$10 }' new.pdb > new.edit
+
+        mv new.edit new.pdb
+
+done
+
+for j in new.pdb
+do
+
+        sed 's/$/      SUB/' new.pdb > new.tmp
+
+        mv new.tmp $f
+        mv $f tropcsubstrate.pdb
+
+done
+
+rm -f new.pdb
