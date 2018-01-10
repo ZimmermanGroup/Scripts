@@ -1,5 +1,5 @@
 #This script is for printing the last coordinate of a geometry optimization and printing it into a .last file in a nerw coordinate directory
-#Paul gave me this script, and I have modified it since then (lines 6, 59) so I do not know what each line does
+#Paul gave me this script, and I have modified it since then (lines 9, 62) so I do not know what each line does
 #Please annotate what you know
 
 #This script was used for qchemmay142015
