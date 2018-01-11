@@ -1,3 +1,7 @@
+This script was given to me by Cody, and I have not made any alterations.
+
+#This script was used for qchemmay142015
+
 #!/bin/bash
 qJobAry=`ls *.out`
 # this script takes the output of a qchem optimizations and gets the last geometry and saves it in a new directory called xyzFiles.
