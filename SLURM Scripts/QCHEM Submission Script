@@ -1,3 +1,5 @@
+#This is a submission script for SLURM QCHEM jobs
+
 #!/bin/bash
 #SBATCH --array=2
 #SBATCH -N 1 --ntasks-per-node=2 --time=1-00:00:00
