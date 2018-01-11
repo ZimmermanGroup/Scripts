@@ -1,3 +1,7 @@
+#This script is for making a PBS submission script for SSM/GSM calculations
+
+#This script was used for qchemmay142015
+
 #!/bin/bash
 
 echo "setting up SLURM"
