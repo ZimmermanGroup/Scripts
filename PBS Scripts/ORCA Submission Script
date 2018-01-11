@@ -1,3 +1,5 @@
+#This script is for making an ORCA PBA submission script
+
 #!/bin/bash
 file=runorca_pbs.qsh
 
