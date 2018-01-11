@@ -1,5 +1,7 @@
 #This script is for printing the final, optimized geometry from an ORCA optimization
 
+#This script was used for qchemmay142015
+
 #!/bin/bash
 
 mkdir xyzFiles
