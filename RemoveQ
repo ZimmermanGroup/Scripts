@@ -1,0 +1,10 @@
+#This script is for removing the q from the beginning of an .out file
+
+#This script was used for qchemmay142015
+
+#!/bin/bash
+
+for i in *out
+do
+    mv "$i" "`echo $i | sed 's/q//'`"
+done
