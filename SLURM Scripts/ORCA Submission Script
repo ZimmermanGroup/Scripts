@@ -1,3 +1,7 @@
+#This script is for making an ORCA submission script
+
+#This script was used for orca_4_0_0_2
+
 #!/bin/bash
 
 echo "setting up go script "
