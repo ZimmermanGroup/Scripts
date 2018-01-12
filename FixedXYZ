@@ -1,0 +1,17 @@
+#This script is for CONSTRAINED geometry optimizations, and produces a list of numbers for the atoms and the XYZ keyword
+
+#This script was used with qchemmay142015
+
+#!/bin/bash
+
+a=  #This line for for specifying the number of atoms you want to produce a list for
+for ((n=1; n<=$a; n++)); do
+        echo $n >> fixed.num  #This is for generating the list of numbers
+done
+
+for f in *.num
+do
+        sed 's/$/ XYZ/' $f > $f.fixedXYZ  #This is for adding the XYZ keyword next tot he numbers
+done
+
+rm -f fixed.num
