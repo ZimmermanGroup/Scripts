@@ -4,7 +4,7 @@
 
 for f in *out
 do
-        grep "Final ene" $f > energy.tmp  #This looks for the phrase
+        grep "Final ene" $f >> energy.tmp  #This looks for the phrase
 done
 
 for g in *tmp
