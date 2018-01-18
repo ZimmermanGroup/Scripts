@@ -1,0 +1,43 @@
+#This script is for determining the difference in energy a geometry optimization has on a structure
+
+# This is for QCHEM geometry optimizations
+
+#!/bin/bash
+
+find . -size 0 -delete  #This removes all empty files
+
+for f in *moviei  #I built this for a directory are using the moviemake script
+do
+        awk '/energy/,/^$/' $f >> $f.tmp  #This looks for the energy phrase and prints the rest of the file
+
+        sed '/max-force/,$d' $f.tmp > $f.rmforce  #This removes everything after the phrase max-fore (including the phrase)
+
+        sed '1d' $f.rmforce > $f.rmfirst  #This removes the first line
+
+        awk 'NR==1 {print}' $f.rmfirst > $f.first #This prints the first line of the file into a new file
+        sed 's/ //g' $f.first > $f.FIRST  #This removes all the empty spaces
+
+        sed -n '$p' $f.rmfirst > $f.last  #This prints the last line of the file into a new file
+        sed 's/ //g' $f.last > $f.LAST  #This removes all he empty spaces
+
+        paste -d' ' $f.LAST $f.FIRST > $f.MERGED  #This merges the first and last energies
+
+        awk '{ print $1-$2 }' $f.MERGED > $f.MATH1  #This subtracts the first energy from the last energy
+
+        sed 's/$/ 627.5095/' $f.MATH1 > $f.INSERT #This inserts the conversoin factor
+
+        awk '{ print $1*$2 }' $f.INSERT > $f.MATH2  #This converts the units to kcal/mol
+
+        ls $f >> list #This lists all of the file names in a new file
+
+        cp list List #This copies the list over
+
+done
+
+        cat *MATH2 > MATH3  #This combines the kcal/mol energies
+
+        echo " " >> List  #This adds an empty line after the filenames
+
+        cat List MATH3 > Difference #This combines the filenames with energies
+
+rm -f *tmp *rmforce *rmfirst *first *FIRST *last *LAST *MERGED *MATH1 *INSERT *MATH2 MATH3 list List
