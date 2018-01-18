@@ -1,15 +1,16 @@
-#This script is for grabbing the energy of the optimized structure from an optimization job
+#This script is for grabbing the energy of the optimized structure from an optimization job, it will also contain the names
 
 #!/bin/bash
 
 for f in *out
 do
-        grep "Final ene" $f >> energy.tmp  #This looks for the phrase
+        grep "Final ene" *out > temp    #This looks for the files that have finished optimizing
+        awk '{ print $5 }' temp > Energy        #This prints the energies into a new file
+        awk '{ print $1 }' temp > Name  #This prints the name into a new file
 done
 
-for g in *tmp
-do
-        awk '{ print $4 }' $g > Energies.txt  #This prints just the energy portion
-done
+        echo " " >> Name        #This adds a space after the names
 
-rm -f energy.tmp
+        cat Name Energy > Energy.txt    #This combines the names and energies into one file
+
+rm -f temp Name Energy
