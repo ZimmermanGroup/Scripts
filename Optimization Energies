@@ -1,0 +1,15 @@
+#This script is for grabbing the energy of the optimized structure from an optimization job
+
+#!/bin/bash
+
+for f in *out
+do
+        grep "Final ene" $f > energy.tmp  #This looks for the phrase
+done
+
+for g in *tmp
+do
+        awk '{ print $4 }' $g > Energies.txt  #This prints just the energy portion
+done
+
+rm -f energy.tmp
