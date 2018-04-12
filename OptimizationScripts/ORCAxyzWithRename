@@ -2,8 +2,8 @@
 
 #this script was written by matthew hannigan on April 12th 2018
 
-#Purpose: Takes an orca geometry output named q###.filename.inp.out, finds the output geometry, and 
-#exports the output geometry into a file named filename.out.xyz in a directory named xyzFiles
+#Purpose: Takes an orca geometry output named q###.filename.inp.out, finds the optimized geometry 
+#then exports the optimized geometry into a file named filename.out.xyz in a directory named xyzFiles
 
 mkdir xyzFiles
 array1=`ls *.out`
