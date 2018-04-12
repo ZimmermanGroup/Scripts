@@ -1,0 +1,57 @@
+#!/bin/bash
+
+#this script was written by matthew hannigan on April 12th 2018
+
+#Purpose: Takes an orca geometry output named q###.filename.inp.out, finds the output geometry, and 
+#exports the output geometry into a file named filename.out.xyz in a directory named xyzFiles
+
+mkdir xyzFiles
+array1=`ls *.out`
+for out in $array1
+do
+	awk '/FINAL ENERGY EVALUATION/,/^$/' $out >> $out.FEE  
+        #prints the lines containing "final energy evaluation" until the next empty line
+	awk 'NR>6' $out.FEE >> $out.xyz                         
+        #grabs the XYZ coordinates in the out.FEE file
+	sed '$d' $out.xyz > $out.xyzm1  
+        #removes the last line from the .xyz file, moves it to a file with extension .xyzm1
+	awk 'END {print NR}' $out.xyzm1 > $out.line            
+        #count the number of lines in out.xyzm1
+        rm -f $out.FEE $out.xyz  
+        #removes the FEE and XYZ files created above because we dont need anymore
+	echo " " >> $out.line   
+        #adds a line to the end of the file (so that there will be a comment line in the xyz)
+	cat $out.line $out.xyzm1 >> $out.a 
+        #cats the number of lines file to the coords, creating the final xyz
+	rm -f $out.line $out.xyzm1
+done
+
+array=`ls *.out.a`						
+#makes an array of files with extension *.out.a
+for element in $array                                           
+do                                                      
+        mv $element `echo "${element%.*}"`a               	
+        #removes the .a extension and gives a file with the form "qxxx.filename.inp.outa"
+				#the extension .outa is required to differentiate from the original files, contaning .out
+done                                                     
+array3=`ls *.outa`                                         	
+#makes an array of files with the extension *.outa
+for element in $array3                                     
+do
+        mv $element `echo "${element#*.}"`                      
+	#removes the "qxxx." prefix from the file, giving a file of the form "filename.inp.outa"
+done
+array4=`ls *.outa`						
+#makes an array of files with the extension "*.outa"
+for element in $array4
+do
+        mv $element `echo "${element%.*}"`a			
+				#removes the extension, giving a file of the form "filename.inpa"
+done    
+array5=`ls *.inpa`	                                     	
+#makes an array of files with the extension ".inpa"
+for element in $array5                                   
+do
+        mv $element xyzFiles/`echo "${element%.*}"`.out.xyz 	
+	#moves the elements of that array5 into the xyzFiles folder, and renames it by replacing the .inpa with .out.xyz, giving "filename.out.xyz"
+done
