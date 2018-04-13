@@ -2,8 +2,10 @@
 
 #this script was written by matthew hannigan on April 12th 2018
 
-#Purpose: Takes an orca geometry output named q###.filename.inp.out, finds the optimized geometry 
-#then exports the optimized geometry into a file named filename.out.xyz in a directory named xyzFiles
+#the first half finds the output geometry from a geometry optimization in ORCA 4.0...
+#then moves that geometry optimization structure into a file named "inputname".a
+#the next half renames the files in the directory with the structure qxxx.filename.inp.out.a to a file...
+#with the name file.out.xyz and moves only files with number of lines greater than 0 into a folder named xyzFiles.
 
 mkdir xyzFiles
 array1=`ls *.out`
@@ -23,16 +25,24 @@ do
         #adds a line to the end of the file (so that there will be a comment line in the xyz)
 	cat $out.line $out.xyzm1 >> $out.a 
         #cats the number of lines file to the coords, creating the final xyz
-	rm -f $out.line $out.xyzm1
+	rm $out.line $out.xyzm1
 done
 
 array=`ls *.out.a`						
 #makes an array of files with extension *.out.a
 for element in $array                                           
 do                                                      
-        mv $element `echo "${element%.*}"`a               	
-        #removes the .a extension and gives a file with the form "qxxx.filename.inp.outa"
-				#the extension .outa is required to differentiate from the original files, contaning .out
+	if [ `head -1 $element` = "0" ]
+	#evaluates if the first line of the file is equal to the string "0". If so...
+	then
+		rm $element
+	#then it removes the file, since this means it does not have a structure in it
+	else
+		echo $element "is optimized"
+	        mv $element `echo "${element%.*}"`a               
+	#if not, then it echos the filename and remanes the file, cutting off the suffix ".a" and 
+	#gives "qxxx.filename.inp.outa"
+	fi
 done                                                     
 array3=`ls *.outa`                                         	
 #makes an array of files with the extension *.outa
@@ -46,12 +56,12 @@ array4=`ls *.outa`
 for element in $array4
 do
         mv $element `echo "${element%.*}"`a			
-				#removes the extension, giving a file of the form "filename.inpa"
+	#removes the extension, giving a file of the form "filename.inpa"
 done    
 array5=`ls *.inpa`	                                     	
 #makes an array of files with the extension ".inpa"
 for element in $array5                                   
 do
-        mv $element xyzFiles/`echo "${element%.*}"`.out.xyz 	
-	#moves the elements of that array5 into the xyzFiles folder, and renames it by replacing the .inpa with .out.xyz, giving "filename.out.xyz"
+	mv $element xyzFiles/`echo "${element%.*}"`.out.xyz 	
+	#moves the elements of that array into the xyzFiles folder, and renames it, replacing the .inpa with .out.xyz, giving "filename.out.xyz"
 done
