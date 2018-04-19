@@ -1,0 +1,77 @@
+#!/bin/bash
+
+#the first half was written by Matt Hannigan on April 19th 2018. Has been used for qchem outputs. 
+#the second half is, verbatim, a makeXYZ script that was inherited from Andy Vitek that grabs the optimized geometry of a structure
+#Purpose: used in a directory containing ".inp.out" files from qchem, will give you the optimized transition state structure and put it
+#in a folder named tsxyzFiles. Needed because makeXYZ does not appear to work on linked jobs.
+#as written, this will only work for files in which the second of three linked jobs is a transition state optimization
+#such as a linked job of the structure "job 1=frequency, job 2= tsopt, job3= frequency"
+#this can be chaned by changing the sed command in the first half
+
+#first half
+orray=`ls *.inp.out`
+for item in $orray
+do
+	sed -n '/Job 2 of 3/,/Job 3 of 3/p' <$item >$item's' 
+done
+
+#second half
+qJobAry=`ls *.inp.outs`
+mkdir tsxyzFiles
+
+for item in $qJobAry
+do
+  echo $item
+  lineEnd=`grep -n "END OF MOLDEN-FORMATTED" $item | grep -Eo '^[^:]+'`
+  if [ -z "$lineEnd" ];
+  then
+    continue
+  fi
+
+  lineEndm1=$(($lineEnd-1))
+
+  IFS='.' read -ra nameAry <<< "$item"
+  counter=0
+
+  for element in "${nameAry[@]}"
+  do
+    let counter=counter+1
+  done
+
+  counter2=0
+  outFileName=
+  for element in "${nameAry[@]}"
+  do
+    if [[ $counter2 -eq 0 || $counter2 -eq $(($counter-2)) ]];
+    then
+      let counter2=counter2+1
+      continue
+    fi
+  outFileName+=$element
+  outFileName+="."
+  let counter2=counter2+1 
+  done
+  outFileName+="xyz"
+
+  alist=`grep -A 1 "NAtoms" $item`
+  
+  x=0
+  for thing in $alist
+  do
+    if [ $x -eq 8 ]
+    then
+      echo $thing
+      numAtoms=$thing
+    fi
+    let x=x+1
+  done
+  
+  let lineStart=lineEndm1-numAtoms-3
+
+  lineStart=$(($lineEnd-$numAtoms-3))
+  csplit $item $lineStart $lineEndm1
+  mv xx01 "tsxyzFiles/$outFileName"
+done
+
+rm -rf *.outs
+rm xx*
