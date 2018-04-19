@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#this script was written by Matt Hannigan on 4/19/2018
+#run this script in a directory containing .out files from qchem. Works for qchemmay142015.
+#purpose: for a linked job of the form "Job 1 = frequency calc, Job 2= OPT or TSOpt, Job 3=frequency calc"
+#this script will tell you how many imagninary frequencies the frequency calc in Job 3 calculated
+#and print it into an output named imginaryfrequencies.out file
+#Tells you if the Opt or TSOpt was good by saying the file has 0 or 1 imaginary freq, respectively
+
+#Notes: this script can be adapted to other styles of linked jobs by changing the sed command 
+
+list=`ls *.out`
+for item in $list
+do
+	sed -n '/Job 3 of 3/,/END OF MOLDEN-FORMATTED INPUT FILE/p' <$item >$item's'
+#prints the lines between the string "Job 3 of 3" and "END OF MOLDEN..." in the $item file to a new file with the same name and with 
+#an s appended to the end. If you want to search between different strings, change the stuff between the "/"s (do not remove the "/"s)
+done
+lists=`ls *.outs`
+touch imaginaryfrequencies.out
+for item in $lists
+do
+  ls $item
+  echo $item `grep Imaginary $item | tail -n 1` >> imaginaryfrequencies.out 
+#grabs the line that contained the string "Imaginary" and then puts it into an the imgaginaryfrequencies file, along with the file name
+done
+rm -rf *.outs
