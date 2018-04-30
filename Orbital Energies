@@ -1,0 +1,32 @@
+#This script is for grabbing orbital energies
+
+#This script was used for qchemmay142015
+
+#!/bin/bash
+
+mkdir OrbitalEnergies   #This creates a new directory
+
+for a in *out
+do
+        awk '/Alpha MOs/,/^$/' $a >> $a.orbs    #This grabs all lines between "Alpha MOs" and the next line break
+done
+
+for b in *orbs
+do
+        sed '/-- Virtual --/,$d' $b >> $b.aorb    #This removes all lines after (and including) "-- Virtual --"3
+done
+
+for c in *aorb
+do
+        sed -n '$p' $c >> $c.last   #This prints only the last line
+done
+
+for d in *last
+do
+        awk '{print $(NF)}' $d >> $d.energy   #This prints the last column
+done
+
+        cat *energy > orbitalEnergies   #This merges all energies into one file
+        mv *energy ./OrbitalEnergies    #This moves all *energy files into the new directory
+
+        rm -f *orbs *aorb *last
