@@ -1,0 +1,32 @@
+# This script is for grabbing the dipole moments
+
+# This script was used for qchemmay142015
+
+#!/bin/bash
+
+mkdir DipoleMoment    #Make new directory
+
+for a in *out
+do
+        awk '/Cartesian Multipole Moments/,/^$/' $a > $a.cart   #Grab lines starting with the phase until the next break
+done
+
+for b in *cart
+do
+        sed '/Quadrupole Moments/,$d' $b > $b.dip   #Remove all lines after, and including, a phrase
+done
+
+for c in *dip
+do
+        sed -n '$p' $c > $c.last    #Print just the last line
+done
+
+for d in *last
+do
+        awk '{print $(NF)}' $d > $d.dipole    #Print just the last column
+done
+
+        cat *dipole > dipoleMoment    #Copy all dipole moments into one document
+        mv *dipole ./DipoleMoment   #Move all files to the new directory
+
+        rm -f *cart *dip *last
