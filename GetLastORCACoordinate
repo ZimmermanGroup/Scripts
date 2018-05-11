@@ -1,0 +1,31 @@
+#This script is the getlastnm version for ORCA
+#This script grabs the last geometry from a running optimization job
+
+#This was last used for ORCA 4.0
+
+#!/bin/bash
+
+mkdir dolphinCoordinate #Make new directory
+
+for a in *out
+do
+        awk '/GEOMETRY OPTIMIZATION CYCLE/ { N=0 } {L[++N]=$0 } END { for(X=1; (X<=N)&&(X <= 100); X++) print L[X] }' $a > $a.file #Print everything after the last occurence of the phrase
+
+        sed '/A.U./,$d' $a.file > $a.remove             #This removes everything after, and icluding, the phrase
+
+        sed '$d' $a.remove | sed '$d' > $a.line         #This is for removing the last two line of the file
+
+        sed '1,5d' $a.line > $a.nomore                  #This removes the first two lines of the file (creates just XYZ coordinates)
+
+        awk 'END {print NR}' $a.nomore > $a.number      #Count the number of lines and print in a new file
+
+        rm -f *file *remove *line
+
+        echo " " >> $a.number                   #Add and extra space to the number file
+
+        cat $a.number $a.nomore > $a.last       #Combine the number and XYZ coodinate files
+
+        rm -f *nomore *number
+done
+
+        mv *last ./dolphinCoordinate
