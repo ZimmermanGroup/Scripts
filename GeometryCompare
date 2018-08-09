@@ -1,0 +1,279 @@
+#!/usr/bin/python
+#Version 1 of this script written on 06/11/2018
+#Current version: 5
+#Primary functionality is to compare bonds, angles, and torsions of input atomic
+# coordinates (.xyz format) to analyze differences in structure resulting from
+# geometry optimizations.
+#This script takes two xyz files as arguments and returns the file bat.txt.
+# Example input: unoptimized and optimized geometries.
+#The file bat.txt contains both molecules' bonds, angles, and torisions (b.a.t.)
+# as well as the difference between each bond, angle, and tortion in the
+# molecules (molecule 1 - molecule 2).
+#After writing data to bat.txt, a menu prompts the user for other statistical
+# analysis. Note: menu option 3 in-progress.
+
+import pybel as pb
+import pprint as pp
+import sys
+import copy
+import numpy as np
+
+molecule1 = next(pb.readfile('xyz',sys.argv[1]))
+molecule2 = next(pb.readfile('xyz',sys.argv[2]))
+
+#print (molecule1)
+#print (molecule2)
+
+#Arrays to hold b/a/t of molecule 1 and molecule 2
+bonds1 = []
+bonds2 = []
+angles1 = []
+angles2 = []
+torsions1 = []
+torsions2 = []
+bondDifferences = []
+angleDifferences = []
+torsionDifferences = []
+
+#Loop thru all bonds and calculate bond distances
+for bond in pb.ob.OBMolBondIter(molecule1.OBMol):
+  atom1 = bond.GetBeginAtom()
+  atom2 = bond.GetEndAtom()
+
+  #Sort atoms according to atomic number
+  if atom1.GetAtomicNum() > atom2.GetAtomicNum():
+    atom1,atom2 = atom2,atom1
+
+  #Calculate all bond lengths of molecule 1 and 2
+  bond1 = bond.GetLength()
+  bond2 = molecule2.OBMol.GetAtom(atom1.GetIdx()).GetDistance(atom2.GetIdx())
+
+  #Add bonds to array
+  bonds1.append([atom1.GetAtomicNum(),atom2.GetAtomicNum(),bond1,atom1.GetIdx(),atom2.GetIdx()])
+  bonds2.append([atom1.GetAtomicNum(),atom2.GetAtomicNum(),bond2,atom1.GetIdx(),atom2.GetIdx()])
+
+  #Calculate bond-per-bond differences between molecules
+  bondDif = bond2-bond1 if abs(bond2-bond1) > 1e-10 else 0.0 #If bond distance is under threshold, set to zero
+  bondDifferences.append([atom1.GetAtomicNum(),atom2.GetAtomicNum(),bondDif,atom1.GetIdx(),atom2.GetIdx()])
+
+#Loop thru all angles and calculate angle distances
+for angle in pb.ob.OBMolAngleIter(molecule1.OBMol):
+  atoms1 = [molecule1.OBMol.GetAtom(i + 1) for i in angle]
+  atoms2 = [molecule2.OBMol.GetAtom(j + 1) for j in angle]
+
+  #New array to sort atoms with middle atom of angle in column 0 of array
+  flipAtoms1 = atoms1[:]
+  flipAtoms1[0], flipAtoms1[1] = flipAtoms1[1], flipAtoms1[0]
+  flipAtoms2 = atoms2[:]
+  flipAtoms2[0], flipAtoms2[1] = flipAtoms2[1], flipAtoms2[0]
+
+  #Sort atoms according to atomic number
+  if atoms1[1].GetAtomicNum() > atoms1[2].GetAtomicNum():
+    atoms1[1],atoms1[2] = atoms1[2],atoms1[1]
+
+  #Calculate all angles of molecule 1 and 2
+  angle1 = molecule1.OBMol.GetAngle(*flipAtoms1)
+  angle2 = molecule2.OBMol.GetAngle(*flipAtoms2) 
+
+  #Calculate angle-per-angle differences between molecules
+  angleDif = angle1 - angle2
+#  angleDif = molecule1.OBMol.GetAngle(*flipAtoms1) - molecule2.OBMol.GetAngle(*flipAtoms2)
+  angleDif = angleDif if abs(angleDif) > 1e-8 else 0.0 #If angle is under threshold, set to zero
+
+  #Add angles to array
+  angles1.append([atom.GetAtomicNum() for atom in atoms1] + [angle1] + [atom.GetIdx() for atom in atoms1])
+  angles2.append([atom.GetAtomicNum() for atom in atoms2] + [angle2] + [atom.GetIdx() for atom in atoms2])
+  angleDifferences.append([atom.GetAtomicNum() for atom in atoms1] + [angleDif] + [atom.GetIdx() for atom in atoms1])
+
+#Loop thru all torsions and calculate angle distances
+for torsion in pb.ob.OBMolTorsionIter(molecule1.OBMol):
+  atoms1 = [molecule1.OBMol.GetAtom(i + 1) for i in torsion]
+  atoms2 = [molecule2.OBMol.GetAtom(j + 1) for j in torsion]
+
+  #Sort atoms along torsion according to atomic number
+  if atoms1[0].GetAtomicNum() > atoms1[3].GetAtomicNum():
+    atoms1 = list(reversed(atoms1))
+    atoms2 = list(reversed(atoms2))
+  elif atoms1[1].GetAtomicNum() > atoms1[2].GetAtomicNum() and atoms1[0].GetAtomicNum() == atoms1[3].GetAtomicNum():
+    atoms1 = list(reversed(atoms1))
+    atoms2 = list(reversed(atoms2))
+
+  #Calculate all torsions of molecule 1 and 2
+  torsion1 = molecule1.OBMol.GetTorsion(*atoms1)
+  torsion2 = molecule2.OBMol.GetTorsion(*atoms2)
+
+  #Calculate torsion-per-torsion differences between molecules
+  torsionDif = torsion1 - torsion2
+#  torsionDif = molecule1.OBMol.GetTorsion(*atoms1) - molecule2.OBMol.GetTorsion(*atoms2)
+  torsionDif = torsionDif if abs(torsionDif) > 1e-8 else 0.0 #If torsion is under threshold, set to zero
+
+  #Add torsions to array
+  torsions1.append([atom.GetAtomicNum() for atom in atoms1] + [torsion1] + [atom.GetIdx() for atom in atoms1])
+  torsions2.append([atom.GetAtomicNum() for atom in atoms2] + [torsion2] + [atom.GetIdx() for atom in atoms2])
+  torsionDifferences.append([atom.GetAtomicNum() for atom in atoms1] + [torsionDif] + [atom.GetIdx() for atom in atoms1])
+
+#Sort all arrays
+sortedBonds1 = sorted(bonds1)
+sortedBonds2 = sorted(bonds2)
+sortedAngles1 = sorted(angles1)
+sortedAngles2 = sorted(angles2)
+sortedTorsions1 = sorted(torsions1)
+sortedTorsions2 = sorted(torsions2)
+sortedBondDifferences = sorted(bondDifferences)
+sortedAngleDifferences = sorted(angleDifferences)
+sortedTorsionDifferences = sorted(torsionDifferences)
+
+#Averages per atom per b/a/t
+bondAverages = [np.mean(sortedBonds1, axis=0)[2],np.mean(sortedBonds2, axis=0)[2]]
+angleAverages = [np.mean(sortedAngles1, axis=0)[3],np.mean(sortedAngles2, axis=0)[3]]
+torsionAverages = [np.mean(sortedAngles1, axis=0)[3],np.mean(sortedAngles2, axis=0)[3]]
+
+#for col in range(len(sortedBonds1[0])):
+#  for row in range(len(sortedBonds1)):
+#    print 'col:',col,' row:',row
+#    print sortedBonds1[row][col]
+
+#Easy print strings
+bondPrint = ' Atom1 Atom2  Bond Dist (A)   Idx1  Idx2'
+anglePrint = ' Atom1 Atom2 Atom3       Angle      Idx1  Idx2  Idx3'
+torsionPrint = ' Atom1 Atom2 Atom3 Atom4      Torsion     Idx1  Idx2  Idx3  Idx4'
+bondDiffPrint = ' Atom1 Atom2  Bond Diff (A)   Idx1  Idx2'
+angleDiffPrint = ' Atom1 Atom2 Atom3    Angle Diff    Idx1  Idx2  Idx3'
+torsionDiffPrint = ' Atom1 Atom2 Atom3 Atom4   Torsion Diff   Idx1  Idx2  Idx3  Idx4'
+
+#Convert arrays to numpy arrays (easy printing)
+npSortedBonds = np.array([sortedBonds1,sortedBonds2])
+npSortedAngles = np.array([sortedAngles1,sortedAngles2])
+npSortedTorsions = np.array([sortedTorsions1,sortedTorsions2])
+npSortedBondDifferences = np.array(sortedBondDifferences)
+npSortedAngleDifferences = np.array(sortedAngleDifferences)
+npSortedTorsionDifferences = np.array(sortedTorsionDifferences)
+
+output = open('bat'+'.txt', 'w')
+
+#All output printed to terminal and bat.txt
+print >>output, '--bonds, angles, and torsions listed--'
+for i in range(0, npSortedBonds.shape[0]):
+  print >>output, '\n','Molecule', i+1, 'bonds:','\n',bondPrint
+  np.savetxt(output,npSortedBonds[i],fmt=['%4u']+['%5u']+['%16.11f']+['%5u']*2)
+  print >>output, 'Bond average:',bondAverages[i]
+for i in range(0, npSortedAngles.shape[0]):
+  print >>output, '\n','Molecule', i+1, 'angles:','\n',anglePrint
+  np.savetxt(output,npSortedAngles[i],fmt=['%4u']+['%5u']*2+['%16.9f']+['%5u']*3)
+  print >>output, 'Angle average:',angleAverages[i]
+for i in range(0, npSortedTorsions.shape[0]):
+  print >>output, '\n','Molecule', i+1, 'torsions:','\n',torsionPrint
+  np.savetxt(output,npSortedTorsions[i],fmt=['%4u']+['%5u']*3+['%16.9f']+['%5u']*4)
+  print >>output, 'Torsion average:',torsionAverages[i]
+
+print >>output, '\n','--molecule 1 vs. molecule 2 bond, angle, and torsion differences listed--'
+print >>output, '   note: if bond diff < 1e-10, or angle/torsion diff < 1e-8, listed as 0.0'
+print >>output, '\n','Molecule 1 bonds - molecule 2 bonds:','\n',bondDiffPrint
+np.savetxt(output,npSortedBondDifferences,fmt=['%4u']+['%5u']+['%16.11f']+['%5u']*2)
+print >>output, '\n','Molecule 1 angles - molecule 2 angles:','\n',angleDiffPrint
+np.savetxt(output,npSortedAngleDifferences,fmt=['%4u']+['%5u']*2+['%16.9f']+['%5u']*3)
+print >>output, '\n','Molecule 1 torsions - molecule 2 torsions:','\n',torsionDiffPrint
+np.savetxt(output,npSortedTorsionDifferences,fmt=['%4u']+['%5u']*3+['%16.9f']+['%5u']*4)
+
+print 'All output written to bat.txt'
+
+#Function to calculate average bond distances of two atoms in the whole molecule
+def averageCalculator(atom1,atom2): 
+  if atom1 > atom2:
+    atom1,atom2 = atom2,atom1
+  userBondsAverage = [None]*npSortedBonds.shape[0]
+  for i, molecule in enumerate(npSortedBonds):
+    userBonds = []
+    for bond in molecule:
+      if (atom1,atom2) == (bond[0],bond[1]):
+        userBonds.append(bond[2])
+#        pp.pprint (bond)
+    if not userBonds:
+      print 'No bonds formed with atoms of atomic number',atom1,'and',atom2,'for molecule',i+1
+    if userBonds:
+      userBondsAverage[i] = np.mean(userBonds)
+  return userBondsAverage
+
+#Atom index declarations
+atomH = 1
+atomC = 6
+row1Metals = np.arange(21,31)
+row2Metals = np.arange(39,49)
+row3Metals = np.arange(57,81)
+row4Metals = np.arange(89,113)
+metals = np.concatenate((row1Metals,row2Metals,row3Metals,row4Metals))
+
+#Terminal print is "print", bat.txt print is "print >>output"
+while True:
+  print '\n','Statistical options: (all output prints to terminal and bat.txt)'
+  print ' 1. Atom specified average bond distance'
+  print ' 2. Atom specified average metal-atom bond distance'
+  print ' 3. Average metal-metal bond distance'
+  print ' 4. Average C-C bond distance'
+  print ' 5. Average C-H bond distance'
+  print ' 9. Exit'
+  menuInput = input('  Choice: ')
+
+  if menuInput == 1:
+    print '  Input atomic number of desired atoms:'
+    atomIn1 = input('   Atom 1: ')
+    atomIn2 = input('   Atom 2: ')
+    if atomIn1 > atomIn2:
+      atomIn1,atomIn2 = atomIn2,atomIn1
+    print '\n','Bond average for atoms',atomIn1,'and',atomIn2
+    print >>output,'\n','Requested average bond information for atoms',atomIn1,'and',atomIn2
+    a1a2AvgDist = averageCalculator(atomIn1,atomIn2)
+    for i in range(0, len(a1a2AvgDist)):
+      print '  Molecule',i+1,':',a1a2AvgDist[i]
+      print >>output,'  Molecule',i+1,':',a1a2AvgDist[i]
+
+  elif menuInput == 2:
+    print '  Input atomic number of desired atom with bond to metal'
+    atomIn = input('   Atom: ')
+    metalNotFound = True
+    foundMetals = []
+
+    for i, metal in enumerate(metals):
+      for j in range(0, len(sortedBonds1)):
+        if (sortedBonds1[j][0] == metal) or (sortedBonds1[j][1] == metal):
+          metalNotFound = False
+          foundMetals.append(metal)
+          break
+    if metalNotFound == True:
+      print 'No metals found in molecule'
+    else:
+      for m, metal in enumerate(foundMetals):
+        print '\n','Bond average for atom',atomIn,'and metal',metal
+        print >>output,'\n','Requested average bond information for atom',atomIn,'and metal',metal
+        amAvgDist = averageCalculator(atomIn,metal)
+        for i in range(0, len(amAvgDist)):
+          print '  Molecule',i+1,':',amAvgDist[i]
+          print >>output,'  Molecule',i+1,':',amAvgDist[i]
+
+  elif menuInput == 3:
+    print 'Feature not yet functional'
+
+  elif menuInput == 4:
+    print '\n','Bond average for atoms',atomC,'and',atomC
+    print >>output,'\n','Requested average bond information for atoms',atomC,'and',atomC
+    ccAvgDist = averageCalculator(atomC,atomC)
+    for i in range(0, len(ccAvgDist)):
+      print '  Molecule',i+1,':',ccAvgDist[i]
+      print >>output,'  Molecule',i+1,':',ccAvgDist[i]
+
+  elif menuInput == 5:
+    print '\n','Bond average for atoms',atomH,'and',atomC
+    print >>output,'\n','Requested average bond information for atoms',atomH,'and',atomC
+    hcAvgDist = averageCalculator(atomH,atomC)
+    for i in range(0, len(hcAvgDist)):
+      print '  Molecule',i+1,':',hcAvgDist[i]
+      print >>output,'  Molecule',i+1,':',hcAvgDist[i]
+
+  elif menuInput == 9:
+    print 'Exiting'
+    break
+  else:
+    print 'Unknown input. Try again.'
+
+output.close()
+
