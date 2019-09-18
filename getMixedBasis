@@ -1,0 +1,68 @@
+#!/bin/bash
+
+#This script is for automating adding a mixed basis into a QChem Script
+#Do not forget to remove the basis set and replace with "GEN"
+#This script was created on 9-18-2019 by Kevin Skinner
+
+X="example"                                     #This is for defining the coordinate file, needs to be updated to relevant file
+Y="6-311++G**"                                  #This defines the first basis set
+Z="6-311G**"                                    #This defines the second basis set
+
+for a in $X
+do
+        awk '{ print $1 }' $a > allatoms        #This prints the first column in a new file to get atoms types
+done
+
+for b in "H" "C" "N" "O"                        #This is for defining atoms in a molecule, needs to be updated to relevant atoms
+do
+        c=$b                                    #This looks for defined atoms in the file 
+        echo "$c"                               #This is a check to make sure all atoms are defined
+        grep "$c" allatoms > $c.atoms
+
+        awk 'END {print NR}' $c.atoms > $c.num  #Count the number of lines and print in a new file for each atom type
+
+        d=`cat $b.num`                          #Call number for each atom type
+        for ((e=1; e<$d+1; e++))                #Define range for adding number
+        do
+                echo "$b $e" >> new.txt         #Create file containing atoms and numbers into a new file
+        done
+
+        cp new.txt NEW.txt                      #This is so that if script is used more than once, then only one version is printed
+        rm -f $c.atoms $c.num new.txt
+
+        sed "/$b/a\****\n$Y" NEW.txt >> set1    #This adds the basis set in the correct formatting to each atom
+done
+
+        cp set1 Set1
+        rm -f set1
+
+for f in "I"
+do
+        g=$f
+        echo "$g"
+        grep "$g" allatoms > $g.atoms
+
+        awk 'END {print NR}' $g.atoms > $g.num
+
+        h=`cat $f.num`
+        for ((i=1; i<$h+1; i++))
+        do
+                echo "$f $i" >> new.txt
+        done
+
+        cp new.txt NEW.txt
+        rm -f $g.atoms $g.num new.txt
+
+        sed "/$f/a\****\n$Z" NEW.txt >> set2
+done
+
+        cp set2 Set2
+        rm -f allatoms set2
+
+        echo '$basis' > basis                   #This is for defining the beginning of the mixed basis definintion
+        echo '$end' > end                       #This is for defining the end of the mixed basis definintion
+
+        cat basis Set1 Set2 end > MixedBasisSet #This prints the mixed basis into a new file, just copy into relevant file
+
+        rm -f basis end Set1 Set2
+        
