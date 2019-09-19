@@ -4,7 +4,7 @@
 #Do not forget to remove the basis set and replace with "GEN"
 #This script was created on 9-18-2019 by Kevin Skinner
 
-X="example"                                     #This is for defining the coordinate file, needs to be updated to relevant file
+X="example.xyz"                                 #This is for defining the .xyz file, needs to be updated to relevant file
 Y="6-311++G**"                                  #This defines the first basis set
 Z="6-311G**"                                    #This defines the second basis set
 
@@ -13,7 +13,7 @@ do
         awk '{ print $1 }' $a > allatoms        #This prints the first column in a new file to get atoms types
 done
 
-for b in "H" "C" "N" "O"                        #This is for defining atoms in a molecule, needs to be updated to relevant atoms
+for b in "H" "C" "N" "O"                        #This is for defining all atoms in a molecule, needs to be updated to relevant atoms
 do
         c=$b                                    #This looks for defined atoms in the file 
         echo "$c"                               #This is a check to make sure all atoms are defined
@@ -24,13 +24,13 @@ do
         d=`cat $b.num`                          #Call number for each atom type
         for ((e=1; e<$d+1; e++))                #Define range for adding number
         do
-                echo "$b $e" >> new.txt         #Create file containing atoms and numbers into a new file
+                echo " $b $e" >> new.txt        #Create file containing atoms and numbers into a new file
         done
 
         cp new.txt NEW.txt                      #This is so that if script is used more than once, then only one version is printed
         rm -f $c.atoms $c.num new.txt
 
-        sed "/$b/a\****\n$Y" NEW.txt >> set1    #This adds the basis set in the correct formatting to each atom
+        sed "/$b/a\ $Y\n ****" NEW.txt >> set1  #This adds the basis set in the correct formatting to each atom
 done
 
         cp set1 Set1
@@ -47,13 +47,13 @@ do
         h=`cat $f.num`
         for ((i=1; i<$h+1; i++))
         do
-                echo "$f $i" >> new.txt
+                echo " $f $i" >> new.txt
         done
 
         cp new.txt NEW.txt
         rm -f $g.atoms $g.num new.txt
 
-        sed "/$f/a\****\n$Z" NEW.txt >> set2
+        sed "/$f/a\ $Z\n ****" NEW.txt >> set2
 done
 
         cp set2 Set2
@@ -64,5 +64,4 @@ done
 
         cat basis Set1 Set2 end > MixedBasisSet #This prints the mixed basis into a new file, just copy into relevant file
 
-        rm -f basis end Set1 Set2
-        
+        rm -f basis end Set1 Set2 NEW.txt
