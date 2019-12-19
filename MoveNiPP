@@ -1,0 +1,33 @@
+#!/bin/bash
+#This script was written by Matt Hannigan 12/19/19
+#this script takes all xyz structures in a directory
+#finds the Ni and P atoms in the structures 
+#and moves the Ni atom to the 3rd line (right after the number of atoms and comment lines)
+#and moves the P atoms to the 4th and 5th lines
+#This script assumes that there is only 1 Ni and 2 Ps in the structure. This will only capture the 1st and last P atoms
+#if there are more P atoms
+
+#This script can be modified to other atoms by modifying the grep commands
+#this script can be modified to include more atoms by modifying the number of grep commands
+#the order can be modified just by changing the order of the echo commands in the script
+
+array=`ls *.xyz`
+for thing in $array
+do
+	num=`head -n 1 $thing`
+	space=`head -n 2 $thing | tail -n 1`
+	Ni=`grep "Ni " $thing`
+	P1=`grep "P " $thing | head -n 1`
+	P2=`grep "P " $thing | tail -n 1`
+	sed -i '/Ni/d' $thing
+	sed -i '/P /d' $thing
+	tail -n +3 $thing > rest.xyz
+	echo $num > $thing
+	echo $space >> $thing
+	echo $Ni >> $thing
+	echo $P1 >> $thing
+	echo $P2 >> $thing
+	cat rest.xyz >> $thing
+	rm -rf rest.xyz 
+	ls $thing
+done
