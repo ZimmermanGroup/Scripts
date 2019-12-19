@@ -1,0 +1,23 @@
+#! /bin/bash
+#this script is meant to iterate the getBondInfo script to get info about
+#bond lengths, angles, and torsions for a series of xyz structures in a directory
+#to use this, run getBondInfoAll in the directory
+#must have a bondInput.txt file in the directory
+#and must have getBondInfo in your bin
+#outputs all bond info erquested in bonInput.txt for all structures into bondOutput.txt
+
+xyzAry=`ls *.xyz`
+
+for item1 in $xyzAry
+do
+ getBondInfo $item1
+done
+
+bondAry=`ls bondInfo.*`
+
+for item2 in $bondAry
+do
+echo "$item2" >> bondOutput.txt
+cat $item2 >> bondOutput.txt
+rm $item2
+done
