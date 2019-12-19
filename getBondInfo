@@ -1,0 +1,115 @@
+#!/usr/bin/env python
+#This program was made by Andrew Vitek 01/10/2017
+#Purpose: This program is intended to be used to find the bond lengths, angles, and torsions in a
+#         particular xyz file when given the appropriate atom numbers to find each quantity.
+
+#The input should be "getBondInfo filename.xyz" 
+#There must be a bondInput.txt file in the directory.
+
+#in bondInput.txt, there must be a line that contains the keywords "Bond" "Angle" or "Torsion" 
+#and 2 atom numbers on the same line as Bond for bond length between those two listed atoms
+#3 numbers on the same line as Angle for bond angle around the middle atom listed
+#or 4 numbers on the same line as Torsion for bond torsion around the line make by the middle two atoms listed
+#to iterate this script, use the getBondInfoAll script
+
+#The command is "getBondInfo filename.xyz" and there cannot be a blank line at the end of 
+#filename.xyz
+
+import numpy as np
+import sys
+import os.path
+import shutil
+import math
+
+molFile = sys.argv[1]
+
+xyzFile = open(molFile, 'r')
+numAtoms = int(xyzFile.readline())
+xyzFileHeader = xyzFile.readline()
+
+atomAry = []
+xCoord = []
+yCoord = []
+zCoord = []
+
+for line in xyzFile:
+  columns = line.split()
+  atomAry.append(columns[0])
+  xCoord.append(columns[1])
+  yCoord.append(columns[2])
+  zCoord.append(columns[3])
+xyzFile.close()
+
+def getDistance(i, j):
+  distanceSquared = (float(xCoord[i-1]) - float(xCoord[j-1]))**2 + \
+                    (float(yCoord[i-1]) - float(yCoord[j-1]))**2 + \
+                    (float(zCoord[i-1]) - float(zCoord[j-1]))**2
+  distance = np.sqrt(distanceSquared)
+  return distance;
+
+def getAngle(i, j, k):
+  D1 = getDistance(i, j)
+  D2 = getDistance(j, k)
+  D3 = getDistance(i, k)
+  cos = ( D1**2 + D2**2 - D3**2) / (2*D1*D2)
+
+  if cos > 1:
+    cos = 1
+  if cos < -1:
+    cos = -1
+  
+  angle = np.arccos(cos)*180/np.pi
+  return angle;
+
+def getVector(i, j):
+  vectorX = (float(xCoord[j-1]) - float(xCoord[i-1]))
+  vectorY = (float(yCoord[j-1]) - float(yCoord[i-1]))
+  vectorZ = (float(zCoord[j-1]) - float(zCoord[i-1])) 
+  vector = [vectorX, vectorY, vectorZ]
+  return vector;
+
+def getNormal(v1, v2):
+  normal = np.cross(v1, v2)
+  return normal;
+
+def getTorsion(i, j, k, l):
+  # For the first plane
+  vector1 = getVector(i, j)
+  vector2 = getVector(j, k)
+
+  normal1 = getNormal(vector1, vector2)
+
+  # For the second plane
+  vector3 = getVector(k,l)
+ 
+  normal2 = getNormal(vector2, vector3)
+
+  A = normal1[0]
+  B = normal1[1]
+  C = normal1[2]
+  E = normal2[0]
+  F = normal2[1]
+  G = normal2[2]
+
+  dotProduct = np.dot(normal1, normal2)
+  magnitude1 = np.sqrt(A**2 + B**2 + C**2)
+  magnitude2 = np.sqrt(E**2 + F**2 + G**2)
+  cosTorsion = (dotProduct)/((np.absolute(magnitude1))*(np.absolute(magnitude2)))
+  radTorsion = np.arccos(cosTorsion) #numpy is automatically in radians
+  torsion = np.degrees(radTorsion)
+
+  return torsion;
+
+bondOutputName = "bondInfo." + molFile.replace('.xyz', '.txt')
+outputFile = open(bondOutputName, 'w')
+
+with open('bondInput.txt', 'r') as inputFile:
+  for line in inputFile:
+    infoList =  [int(s) for s in line.split() if s.isdigit()]
+    if "Bond" in line:
+      outputFile.write('%s %.3f \n' % (line.rstrip(), getDistance(infoList[0], infoList[1])))
+    elif "Angle" in line:
+      outputFile.write('%s %.3f \n' % (line.rstrip(), getAngle(infoList[0], infoList[1], infoList[2])))
+    elif "Torsion" in line:
+      outputFile.write('%s %.3f \n' % (line.rstrip(), getTorsion(infoList[0], infoList[1], infoList[2], infoList[3])))
+outputFile.close()
