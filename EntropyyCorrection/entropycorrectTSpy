@@ -1,0 +1,90 @@
+#!/usr/bin/python
+
+import shutil
+import sys
+import re
+import os
+import math
+from os import listdir
+
+directory = "./"
+files_dir = listdir(directory)
+
+files_list = []
+
+for names in files_dir:
+   if names.endswith(".out"):
+       files_list.append(names)
+
+new_files_list = sorted(files_list)
+# print(new_files_list)
+
+for names in files_dir:
+    if names.endswith("Entropy_Correction.txt"):
+       os.remove("./Vib_Entropy_Correction.txt")
+
+
+entropycorr = open("./Vib_Entropy_Correction.txt", "a+")
+entropycorr.write("   File Name         corrected S\n")
+
+freqlimit = 50                # Set the Frequency Limit (usually kept at 50 cm-1)
+temp=298.15                   # See entropycorrectTShighTpy for higher temperature
+
+for item in new_files_list:
+    item_name = str(item)
+    out_file = open(item_name)
+    read_text = out_file.read()
+    if "Have a nice day" in read_text:
+       # print("found")
+       # print(type(read_text))
+        text_list = read_text.split("\n")
+        index = 0
+        for text in text_list:
+            if "Translational Entropy" in text:
+                trans_index = index
+            if "Rotational Entropy" in text:
+                rot_index = index
+            index += 1
+        trans_entropy_str = str(text_list[trans_index:(trans_index+1)])
+        rot_entropy_str = str(text_list[rot_index:(rot_index+1)])
+        trans_list = trans_entropy_str.split()
+        rot_list = rot_entropy_str.split()
+        trans_entropy = float(trans_list[3])
+        rot_entropy = float(rot_list[3])
+    
+        start_index = text_list.index("[FREQ]")
+        end_index = text_list.index("[FR-COORD]")
+        
+        fr_list = text_list[start_index+1:end_index]
+        freq_list = []
+        for freq in fr_list:
+            newfreq = freq.strip()
+            freq_list.append(float(newfreq))
+        
+        freq_array = []
+        for freq in freq_list:
+            if freq < freqlimit and freq>0:
+               freq_array.append(freqlimit)
+            elif freq > freqlimit and freq>0:
+               freq_array.append(freq)
+        
+        # Formula for Vibrational Entropy of Polyatomic Molecules' TS
+        # S_v = R[Sum((hv_i/kbT)/(e^(hv_i/kbT) - 1) - ln(1 - e^(-hv_i/kbT))) for i in 3N-7 vibrational modes (excluding the mode along TS)]
+
+        vib_entropy = 0
+        for freq in freq_array:
+            hn_kbT = (freq*6.62607004*(10**(-34))*2.998*(10**(10))) / (1.38064852*(10**(-23)) * temp)
+            term_1 = hn_kbT / (math.exp(hn_kbT) - 1)
+            term_2 = math.log( 1 - math.exp(-hn_kbT))
+            vib_entropy += 1.987203*(term_1 - term_2)
+        corr_vib_entropy = (((10**(3))*vib_entropy)+0.5)/(10**(3))
+        corr_total_entropy = trans_entropy + rot_entropy + corr_vib_entropy
+     
+
+        entropycorr.write("   ")
+        entropycorr.write(item_name)
+        entropycorr.write("       ")
+        entropycorr.write(str(corr_total_entropy))
+        entropycorr.write("\n")
+
+print("Entropy corrected successfully !! Open Vib_Entropy_Correction.txt to get the corrected values")
