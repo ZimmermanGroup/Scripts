@@ -1,0 +1,103 @@
+#!/usr/bin/python
+
+import shutil
+import sys
+import re
+import os
+import math
+from os import listdir
+
+# If no arguments provided, it generates a single .txt file with 
+# all optimized XYZ coordinates corresponding to all .out files in the directory.
+
+# If a single .out file needs to be converted to corresponding .xyz
+# provide the name of the output file as the first argument.
+# Providing name of the corresponding xyz file is not necessary !!
+
+if len(sys.argv) <= 1:
+
+    directory = "./"
+    files_dir = listdir(directory)
+
+    files_list = []
+
+    for names in files_dir:
+        if names.endswith(".out"):
+            files_list.append(names)
+
+    new_files_list = sorted(files_list)
+
+    # print(new_files_list)
+
+    for names in files_dir:
+        if names.endswith("XYZ.txt"):
+            os.remove("./FinalOptXYZ.txt")
+
+
+    optxyz = open("./FinalOptXYZ.txt", "a+")
+
+    for item in new_files_list:
+        item_name = str(item)
+        out_file = open(item_name, 'r')
+        read_text = out_file.read()
+        if "OPTIMIZATION CONVERGED" in read_text:
+            optxyz.write(item_name)
+            optxyz.write("\n")
+            text_list = read_text.split("\n")
+            index = 0
+            for text in text_list:
+                if "**  OPTIMIZATION CONVERGED  **" in text:
+                    start_index = index + 5
+                if "Z-matrix Print:" in text:
+                    end_index = index - 1
+                index += 1
+            coord_list = text_list[start_index:end_index]
+            energy_string = text_list[(start_index-9):(start_index-8)]
+            for string in energy_string:
+                optxyz.write(str(string)[1:])
+            optxyz.write("\n\n")
+            for coord in coord_list:
+                coord_string = str(coord)
+                optxyz.write(coord_string[9:])
+                optxyz.write("\n")
+            optxyz.write("\n")
+
+    print("Success !! Open FinalOptXYZ.txt to get the optimized xyz coordinates")
+
+else:
+
+    directory = "./"
+    out_file_name = sys.argv[1]
+
+    try:
+        optxyz_file_name = sys.argv[2]
+    except:
+        optxyz_file_name = re.sub(".out", "-opt.xyz", out_file_name)
+
+    out_file = open(str(out_file_name))
+    read_text = out_file.read()
+
+    optxyz = open(str(optxyz_file_name), 'w+')
+
+    if "OPTIMIZATION CONVERGED" in read_text:
+            optxyz.write(str(out_file_name))
+            optxyz.write("\n")
+            text_list = read_text.split("\n")
+            index = 0
+            for text in text_list:
+                if "**  OPTIMIZATION CONVERGED  **" in text:
+                    start_index = index + 5
+                if "Z-matrix Print:" in text:
+                    end_index = index - 1
+                index += 1
+            coord_list = text_list[start_index:end_index]
+            energy_string = text_list[(start_index-9):(start_index-8)]
+            for string in energy_string:
+                optxyz.write(str(string)[1:])
+            optxyz.write("\n\n")
+            for coord in coord_list:
+                coord_string = str(coord)
+                optxyz.write(coord_string[9:])
+                optxyz.write("\n")
+            
+    print("Optimized XYZ coordinates generated successfully !!")
