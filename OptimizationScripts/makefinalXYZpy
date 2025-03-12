@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/export/apps/RockyOS8/anaconda/2024.02/bin/python
 
 import shutil
 import sys
@@ -38,7 +38,7 @@ if len(sys.argv) <= 1:
 
     for item in new_files_list:
         item_name = str(item)
-        out_file = open(item_name, 'r')
+        out_file = open(item_name, 'r', errors='ignore')
         read_text = out_file.read()
         if "OPTIMIZATION CONVERGED" in read_text:
             optxyz.write(item_name)
@@ -74,7 +74,7 @@ else:
     except:
         optxyz_file_name = re.sub(".out", "-opt.xyz", out_file_name)
 
-    out_file = open(str(out_file_name))
+    out_file = open(str(out_file_name), 'r', errors='ignore')
     read_text = out_file.read()
 
     optxyz = open(str(optxyz_file_name), 'w+')
