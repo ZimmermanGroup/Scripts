@@ -1,0 +1,161 @@
+#ATOMS
+
+atom    100     100     CG2DC1     "CHARMM CG2DC1"      6   12.011  3
+atom    101     101     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    102     102     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    103     103     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    104     104     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    105     105     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    106     106     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    107     107     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    108     108     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    109     109     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    110     110     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    111     111     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    112     112     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    113     113     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    114     114     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    115     115     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    116     116     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    117     117     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    118     118     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    119     119     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    120     120     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    121     121     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    122     122     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    123     123     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    124     124     CG2R61     "CHARMM CG2R61"      6   12.011  3
+atom    131     131     CG2R67     "CHARMM CG2R67"      6   12.011  3
+atom    132     132     CG2R67     "CHARMM CG2R67"      6   12.011  3
+atom    141     141     CG2RC0     "CHARMM CG2RC0"      6   12.011  3
+atom    142     142     CG2RC0     "CHARMM CG2RC0"      6   12.011  3
+atom    151     151     CG331       "CHARMM CG331"      6   12.011  4
+atom    152     152     CG331       "CHARMM CG331"      6   12.011  4
+atom    153     153     CG331       "CHARMM CG331"      6   12.011  4
+atom    154     154     CG331       "CHARMM CG331"      6   12.011  4
+atom    161     161     CG3C51     "CHARMM CG3C51"      6   12.011  4
+atom    201     201     HGA1        "CHARMM HGA1"       1   1.008   1
+atom    211     211     HGA3        "CHARMM HGA3"       1   1.008   1
+atom    221     221     HGAP1       "CHARMM HGP1"       1   1.008   1
+atom    231     231     HGAP2       "CHARMM HGP2"       1   1.008   1
+atom    241     241     HGR61       "CHARMM HGR61"      1   1.008   1
+atom    242     242     HGR61       "CHARMM HGR61"      1   1.008   1
+atom    243     243     HGR61       "CHARMM HGR61"      1   1.008   1
+atom    244     244     HGR61       "CHARMM HGR61"      1   1.008   1
+atom    245     245     HGR61       "CHARMM HGR61"      1   1.008   1
+atom    301     301     NG2P1       "CHARMM NG2P1"      7   14.0067 3
+atom    311     311     NG3C51      "CHARMM NG3C51"     7   14.0067 3
+atom    401     401     OG2P1       "CHARMM OG2P1"      8   15.999  1
+atom    411     411     OG301       "CHARMM OG301"      8   15.999  2
+atom    421     421     OG303       "CHARMM OG303"      8   15.999  2
+atom    501     501     PG1         "CHARMM PG1"        15  30.974  4
+atom    601     601     SG311       "CHARMM SG311"      16  32.065  2
+
+#CHARGES
+
+charge  100     0.191
+charge  101     -0.000
+charge  102     0.000
+charge  103     -0.008
+charge  104     -0.019
+charge  105     -0.022
+charge  106     -0.107
+charge  107     -0.108
+charge  108     -0.110
+charge  109     -0.113
+charge  110     -0.115
+charge  111     -0.118
+charge  112     -0.120
+charge  113     0.120
+charge  114     -0.122
+charge  115     -0.133
+charge  116     -0.137
+charge  117     -0.178
+charge  118     -0.190
+charge  119     0.222
+charge  120     -0.249
+charge  121     -0.253
+charge  122     0.281
+charge  123     0.938
+charge  124     -1.279
+charge  131     0.026
+charge  132     -0.028
+charge  141     0.119
+charge  142     0.352
+charge  151     -0.101
+charge  152     -0.146
+charge  153     -0.264
+charge  154     -0.265
+charge  161     0.169
+charge  201     0.090
+charge  211     0.090
+charge  221     0.298
+charge  231     0.240
+charge  241     0.115
+charge  242     0.127
+charge  243     0.136
+charge  244     0.210
+charge  245     0.226
+charge  301     1.322
+charge  311     -0.492
+charge  401     -0.657
+charge  411     -0.389
+charge  421     -0.264
+charge  501     1.308
+charge  601     -0.388
+
+#vdw
+
+vdw     100     2.0900  -0.0680
+vdw     101     1.9924  -0.0700
+vdw     102     1.9924  -0.0700
+vdw     103     1.9924  -0.0700
+vdw     104     1.9924  -0.0700
+vdw     105     1.9924  -0.0700
+vdw     106     1.9924  -0.0700
+vdw     107     1.9924  -0.0700
+vdw     108     1.9924  -0.0700
+vdw     109     1.9924  -0.0700
+vdw     110     1.9924  -0.0700
+vdw     111     1.9924  -0.0700
+vdw     112     1.9924  -0.0700
+vdw     113     1.9924  -0.0700
+vdw     114     1.9924  -0.0700
+vdw     115     1.9924  -0.0700
+vdw     116     1.9924  -0.0700
+vdw     117     1.9924  -0.0700
+vdw     118     1.9924  -0.0700
+vdw     119     1.9924  -0.0700
+vdw     120     1.9924  -0.0700
+vdw     121     1.9924  -0.0700
+vdw     122     1.9924  -0.0700
+vdw     123     1.9924  -0.0700
+vdw     124     1.9924  -0.0700
+vdw     131     1.9924  -0.0700
+vdw     132     1.9924  -0.0700
+vdw     141     1.8600  -0.0990
+vdw     142     1.8600  -0.0990
+vdw     151     2.0500  -0.0780
+vdw     152     2.0500  -0.0780
+vdw     153     2.0500  -0.0780
+vdw     154     2.0500  -0.0780
+vdw     161     2.0100  -0.0360
+vdw     201     1.3400  -0.0450
+vdw     211     1.3400  -0.0240
+vdw     221     0.2245  -0.0460
+vdw     231     0.2245  -0.0460
+vdw     241     1.3582  -0.0300
+vdw     242     1.3582  -0.0300
+vdw     243     1.3582  -0.0300
+vdw     244     1.3582  -0.0300
+vdw     245     1.3582  -0.0300
+vdw     301     1.8500  -0.2000
+vdw     311     1.8500  -0.2000
+vdw     401     1.7000  -0.1200
+vdw     411     1.6500  -0.1000
+vdw     421     1.6500  -0.1000
+vdw     501     2.1500  -0.5850
+vdw     601     2.0000  -0.4500
+
+
+

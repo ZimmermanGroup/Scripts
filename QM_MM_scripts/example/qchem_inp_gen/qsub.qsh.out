@@ -1,0 +1,22 @@
+Loading compiler version 2021.1.1
+Loading tbb version 2021.1.1
+Loading debugger version 10.0.0
+Loading compiler-rt version 2021.1.1
+Loading dpl version 2021.1.1
+Loading oclfpga version 2021.1.1
+	This module will set up environment variables
+	for OpenMPI 
+
+Loading openmpi/3.1.2-intel_oneapi
+  Loading requirement: intel/oneapi/tbb/latest intel/oneapi/debugger/latest
+    intel/oneapi/compiler-rt/latest intel/oneapi/dpl/latest
+    /export/apps/CentOS7/intel/oneapi/compiler/2021.1.1/linux/lib/oclfpga/modulefiles/oclfpga intel/oneapi/compiler/latest
+Loading mkl version 2021.1.1
+Loading compiler-rt version 2021.1.1
+Loading tbb version 2021.1.1
+
+Loading intel/oneapi/mkl/2021.1.1
+  Loading requirement: intel/oneapi/compiler-rt/2021.1.1
+    intel/oneapi/tbb/2021.1.1
+	This module will set up environment variables
+	for cmake.

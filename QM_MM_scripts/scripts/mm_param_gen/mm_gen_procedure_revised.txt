@@ -1,0 +1,44 @@
+##################################################
+####  Original produce by Oleksii Zhelavskyii  ###
+####  Modified and revised by Soumik Das     #####
+##################################################
+
+source ~/setupbcat
+babel file.xyz file.mol2        # that is for cgenff
+babel file.xyz file.txyz # that is for tinker format and connectivity
+
+module load cgenff/2018.2
+
+cgenff -a -f <outfile.rtf> file.mol2 � produce all parameters from cgenFF36 without LG
+
+python tmpAtoms.py <outfile.rtf> (generates tmpAtoms.prm & lgAtoms.prm & atoms.prm)
+sort -u tmpAtoms.prm  > atomTypes.prm and moify atomTypes.prm to include newTypes (of your choice) as a third column
+cp lgAtoms.prm tmp && sort -u tmp > lgAtoms.prm && rm -f tmp
+
+./getLG.sh lgAtoms.prm allLG_cgenff36.prm
+
+python match_atoms.py atomTypes.prm
+python gen_txyz.py file.txyz matched_atoms.prm newfile.txyz (modifies the txyz file to include the newTypes from matched_atoms.prm instead of the old(MM2)-type)
+
+create an initial copy of FF param file (**-initial.prm)
+1. Declare atomtypes (new as well as charmm type) from atomTypes.prm and matched_atoms.prm
+2. For connectivity declaration check the txyz file
+3. If required, check cpa_full.prm for reference
+4. add charges in charges section and vdw params from atomTypes.prm and lgatoms.rtf respectively (have some linebreaks at the end of the file for smoother formatting)
+
+run tinker-minimization and add missing parameters to get the full FF parameters
+1. modify keyfile.key to *initial(without .prm) as the parameter file
+2. ./tinkerMinim.sh newfile.txyz > out.log
+3. modify the generated out.log to remove everything except undefined bonds, angles and torsions parts (remove ALL OTHER TEXTS)
+4. copy only BONDS, ANGLES, & DIHEDRAL section from outfile.rtf to 'param.rtf' and format the lines with 'bond', 'angle' or 'torsion' written in front of each line wherever whichever suits
+    (that means put 'bond' in front of BONDS section, 'angle' in front of ANGLES section and so on ...)
+5. python convTypes.py atomTypes.prm param.rtf (generates bonds.prm, angles.prm, torsions.prm and ureybrad.prm, it's fine if ureybrad is empty)
+6. cp *initial.prm *full.prm && ./combParams.sh *full.prm
+7. Verify whether you generated all the params you need
+	7.1. modify keyfile.key to change parameter name to *full instead of *initial as we did before
+	7.2 ./tinkerMinim.sh newfile.txyz > out2.log
+At this point, Tinker should terminate normally without any errors !!
+
+Congrats !! You have successfully generated MM params for your system
+
+

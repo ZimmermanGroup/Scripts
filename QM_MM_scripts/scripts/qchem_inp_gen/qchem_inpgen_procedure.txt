@@ -1,0 +1,39 @@
+###############################
+### Written by Soumik Das #####
+###############################
+
+DISCLAIMER:
+You should follow this procedure if and only if you have successfully generated MM params for your system.
+If you haven't, generate those first using mm_gen_procedure_revised.txt
+
+1. copy the full params file generated at the end of mm_param_gen procedure here (*full.prm, let's say)
+2. python formatParams.py *full.prm (generates qchem_formated.prm)
+
+3. copy the txyz file formatted with newAtomtypes and xyz file for your system
+4. create *.cart.xyz and *.cart.txyz with just the coordinates and connectivity (no total atom numbers and empty lines)
+
+5. ./mergeconnectivity.sh *.cart.txyz *.cart.xyz (generates coords.txt, connectivity.txt, *merged.xyz)
+
+Now, you have everything that you need to generate the qchem input file.
+6. Find out atoms in QM and MM region. You can do this manually as well but can also be done using script
+    list_qm_atoms.py. It uses pyGSM module so you have to load an environment which has pygsm module in it.
+    You can create an environment by yourself (conda create -n pygsmenv python=3.9, clone the pyGSM github repo
+    and pip install -e.) or load an existing environment with pyGSM (conda activate ~soumikd/.conda/envs/pygsmenv)
+
+    6.1. Once you load an environment, python list_qm_atoms.py *.xyz (not .cart.xyz)\
+    6.2. Enter QM border atom indexes with space (border of atoms at the reactive site)
+    6.3. Enter MM border atom indexes with space (border of non-reactive atoms)
+    6.4. Copy the atom indices printed in QM region in sample.inp (file with $rem section)
+
+7. cat sample.inp qchem_formated.prm molec.inp > sample.qmmm.inp
+8. open *merged.xyz and enter total atom number and an empty line after, save that change
+9. python qmmm_inpgen.py sample.qmmm.inp *_merged.xyz q001.**.xyz.inp
+
+** For any new xyz file (same system), MM params will be unchanged. Just you have to make the txyz file for it and create qchem input using the following procedure
+source ~/bin/setupbcat
+babel file.xyz file.txyz
+python gen_txyz.py file.txyz matched_atoms.prm newfile.txyz
+create *.cart.xyz and *.cart.txyz with just the coordinates and connectivity (no total atom numbers and empty lines)
+./mergeconnectivity.sh *.cart.txyz *.cart.xyz (generates coords.txt, connectivity.txt, *merged.xyz)
+open *merged.xyz and enter total atom number and an empty line after, save that change
+python qmmm_inpgen.py sample.qmmm.inp *_merged.xyz q00n.**.xyz.inp

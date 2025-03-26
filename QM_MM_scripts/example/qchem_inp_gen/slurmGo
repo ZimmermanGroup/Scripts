@@ -1,0 +1,25 @@
+#!/bin/bash
+#SBATCH --array=1
+#SBATCH -N 1 --ntasks-per-node=16 --time=7-00:00:00
+#SBATCH -e qsub.qsh.err -o qsub.qsh.out
+#SBATCH -A zimmerman
+#SBATCH -p zimopt --job-name=OPT_combined_c2
+############SBATCH --dependency=afterany:841304_5L
+
+. /etc/profile.d/slurm.sh
+
+ID=`printf "%0*d\n" 3 ${SLURM_ARRAY_TASK_ID}`
+
+cd `pwd`
+
+source /home/paulzim/qchem/qchemdow1/paul.set.local0 
+#source /home/paulzim/qchem/qchemdow1/paul.set.local1
+#module load qchem/feb2019/env_intel_2018_parallel
+
+name=`ls q$ID*.inp`
+
+qchem -nt ${SLURM_JOB_CPUS_PER_NODE} $name $name.out
+#cp $QCSCRATCH/$name.scr .
+
+
+#rm $QCSCRATCH

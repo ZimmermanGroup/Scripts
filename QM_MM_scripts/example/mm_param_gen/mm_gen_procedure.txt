@@ -1,0 +1,28 @@
+source ~/setupbcat
+babel file.xyz file.mol2        # that is for cgenff
+babel file.xyz file.txyz # that is for tinker format and connectivity
+
+module load cgenff/2018.2
+
+cgenff -a -f <outfile.rtf> file.mol2 – produce all parameters from cgenFF36 without LG
+
+from rtf file get atoms to new file "tmpAtoms.prm" (charmm types and charges)
+sort -u tmpAtoms.prm  > atomTypes.prm (here also need newTypes for further steps)
+than sort them sort -u tmpAtoms.prm in format "CharmmType" to file "lgAtoms" (only list of unique charmTypes)
+
+use script getLG.sh lgAtoms.prm allLG_cgenff36.prm(with removed everything except LG)
+create new prm file with FF params and atom section
+insert charges from uniqueAtoms.prm
+develop new atomtypes based on charmm type and charge
+insert charges and vdw
+
+format atomtypes.txt "CharmType Charge newType"
+transfer BONDS, ANGLES and DIHEDRALS to file param.rtf. format each line with “bond”, “angle” and “torsion”
+Then, to match CHARMM type with new types use python match_atoms.py atomTypes.txt (that read atoms.prm)
+Copy new atomTypes from matched_atoms.prm to txyz file
+Modify keyfile and run tinker:
+./tinkerMinim.sh file.txyz > out.log to get list of needed  bond, angles, torsions
+Leave only bonds, angles, torsions in out.log
+Then, use python convTypes.py atomTypes.txt param.rtf to get all params
+./combParams.sh file.prm – to combine all generated parameters in one file (also sort parameters to exclude repeating parameters)
+

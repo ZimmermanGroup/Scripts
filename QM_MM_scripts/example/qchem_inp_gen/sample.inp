@@ -1,0 +1,41 @@
+$rem
+jobtype               OPT
+geom_opt_max_cycles   500
+max_scf_cycles        250
+EXCHANGE              B97-D3
+BASIS                 6-31G**
+PRINT_GENERAL_BASIS   TRUE
+SCF_GUESS             CORE
+SCF_CONVERGENCE       6
+SCF_ALGORITHM         rca_diis
+SCF_GUESS_ALWAYS      FALSE
+XC_GRID               1
+
+QM_MM_INTERFACE       zeolite
+force_field           charmm27
+user_connect          true
+symmetry              off
+sym_ignore            true
+print_input           false
+qmmm_print            false
+qm_mm                 false
+!mem_total             3000
+molden_format         true
+!geom_opt_coords        0
+geom_opt_tol_energy   800
+geom_opt_tol_gradient 5000
+geom_opt_print        2
+!UNRESTRICTED          true
+!MODEL_SYSTEM_MULT     1
+$end
+
+$qm_atoms
+23 24 35 36 37 39 40 42 43 45 48 49 50 51 52 53 55 58 59 60 61 62 63 64 65 66 67 68 69 84 85 87 88 92 93 94 95 99 100 101 102 106 107 108 109 113 114 115 116 117 118 119 120 121 122 123 126 128 129 130 131 132 133 134
+$end
+
+$comment
+$end
+
+
+$force_field_params
+NumAtomTypes 999

@@ -1,0 +1,723 @@
+ Bond            1-CG2     2-CG2         108  108
+ Bond            1-CG2     6-CG2         108  112
+ Bond            1-CG2    70-HGR         108  241
+ Bond            2-CG2     3-CG2         108  112
+ Bond            2-CG2    71-HGR         108  241
+ Bond            3-CG2     4-CG2         112  105
+ Bond            3-CG2    72-HGR         112  241
+ Bond            4-CG2     5-CG2         105  102
+ Bond            4-CG2     7-CG2         105  132
+ Bond            5-CG2     6-CG2         102  112
+ Bond            5-CG2    10-CG2         102  116
+ Bond            6-CG2    73-HGR         112  241
+ Bond            7-CG2     8-CG2         132  115
+ Bond            7-CG2    11-CG2         132  132
+ Bond            8-CG2     9-CG2         115  132
+ Bond            8-CG2    24-OG3         115  421
+ Bond            9-CG2    10-CG2         132  116
+ Bond            9-CG2    21-CG2         132  131
+ Bond           10-CG2    74-HGR         116  241
+ Bond           11-CG2    12-CG2         132  105
+ Bond           11-CG2    16-CG2         132  115
+ Bond           12-CG2    13-CG2         105  101
+ Bond           12-CG2    17-CG2         105  112
+ Bond           13-CG2    14-CG2         101  116
+ Bond           13-CG2    20-CG2         101  112
+ Bond           14-CG2    15-CG2         116  132
+ Bond           14-CG2    75-HGR         116  241
+ Bond           15-CG2    16-CG2         132  115
+ Bond           15-CG2    22-CG2         132  131
+ Bond           16-CG2    23-OG3         115  421
+ Bond           17-CG2    18-CG2         112  108
+ Bond           17-CG2    76-HGR         112  241
+ Bond           18-CG2    19-CG2         108  108
+ Bond           18-CG2    77-HGR         108  241
+ Bond           19-CG2    20-CG2         108  112
+ Bond           19-CG2    78-HGR         108  241
+ Bond           20-CG2    79-HGR         112  241
+ Bond           21-CG2    25-CG2         131  104
+ Bond           21-CG2    29-CG2         131  104
+ Bond           22-CG2    30-CG2         131  104
+ Bond           22-CG2    34-CG2         131  104
+ Bond           23-OG3    35-PG1         421  501
+ Bond           24-OG3    35-PG1         421  501
+ Bond           25-CG2    26-CG2         104  109
+ Bond           25-CG2    44-CG3         104  154
+ Bond           26-CG2    27-CG2         109  103
+ Bond           26-CG2    80-HGR         109  241
+ Bond           27-CG2    28-CG2         103  109
+ Bond           27-CG2    46-CG3         103  153
+ Bond           28-CG2    29-CG2         109  104
+ Bond           28-CG2    81-HGR         109  241
+ Bond           29-CG2    47-CG3         104  154
+ Bond           30-CG2    31-CG2         104  109
+ Bond           30-CG2    38-CG3         104  154
+ Bond           31-CG2    32-CG2         109  103
+ Bond           31-CG2    82-HGR         109  241
+ Bond           32-CG2    33-CG2         103  109
+ Bond           32-CG2    54-CG3         103  153
+ Bond           33-CG2    34-CG2         109  104
+ Bond           33-CG2    83-HGR         109  241
+ Bond           34-CG2    41-CG3         104  154
+ Bond           35-PG1    36-OG2         501  401
+ Bond           35-PG1    37-OG2         501  401
+ Bond           38-CG3    56-HGA         154  211
+ Bond           38-CG3    57-HGA         154  211
+ Bond           38-CG3    86-HGA         154  211
+ Bond           39-CG2    52-HGR         114  241
+ Bond           39-CG2    58-CG2         114  113
+ Bond           39-CG2    85-CG2         114  106
+ Bond           40-HGR    87-CG2         241  106
+ Bond           41-CG3    89-HGA         154  211
+ Bond           41-CG3    90-HGA         154  211
+ Bond           41-CG3    91-HGA         154  211
+ Bond           42-CG2    94-HGR         118  242
+ Bond           42-CG2   114-CG2         118  120
+ Bond           42-CG2   119-CG2         118  117
+ Bond           43-CG2    49-CG2         123  124
+ Bond           43-CG2    62-CG2         123  124
+ Bond           43-CG2    68-NG2         123  301
+ Bond           44-CG3   110-HGA         154  211
+ Bond           44-CG3   111-HGA         154  211
+ Bond           44-CG3   112-HGA         154  211
+ Bond           45-CG2    99-CG2         111  110
+ Bond           45-CG2   100-CG2         111  122
+ Bond           45-CG2   128-HGR         111  241
+ Bond           46-CG3   103-HGA         153  211
+ Bond           46-CG3   104-HGA         153  211
+ Bond           46-CG3   105-HGA         153  211
+ Bond           47-CG3   124-HGA         154  211
+ Bond           47-CG3   125-HGA         154  211
+ Bond           47-CG3   127-HGA         154  211
+ Bond           48-HGA    65-CG3         211  151
+ Bond           49-CG2    93-CG2         124  107
+ Bond           49-CG2   133-HGR         124  245
+ Bond           50-HGR    59-CG2         241  114
+ Bond           51-HGR    55-CG2         241  110
+ Bond           53-HGR   120-CG2         244  121
+ Bond           54-CG3    96-HGA         153  211
+ Bond           54-CG3    97-HGA         153  211
+ Bond           54-CG3    98-HGA         153  211
+ Bond           55-CG2    85-CG2         110  106
+ Bond           55-CG2    87-CG2         110  106
+ Bond           58-CG2    59-CG2         113  114
+ Bond           58-CG2   116-CG3         113  161
+ Bond           59-CG2    87-CG2         114  106
+ Bond           60-CG2    61-CG2         119  107
+ Bond           60-CG2    63-OG3         119  411
+ Bond           60-CG2    93-CG2         119  107
+ Bond           61-CG2    62-CG2         107  124
+ Bond           61-CG2   106-HGR         107  241
+ Bond           62-CG2   122-HGR         124  245
+ Bond           63-OG3    65-CG3         411  151
+ Bond           64-CG3   102-CG2         152  100
+ Bond           64-CG3   130-HGA         152  211
+ Bond           64-CG3   131-HGA         152  211
+ Bond           64-CG3   132-HGA         152  211
+ Bond           65-CG3   107-HGA         151  211
+ Bond           65-CG3   123-HGA         151  211
+ Bond           66-HGR   108-CG2         241  110
+ Bond           67-HGR   109-CG2         241  110
+ Bond           68-NG2    84-HGA         301  231
+ Bond           68-NG2   102-CG2         301  100
+ Bond           69-HGR    99-CG2         241  110
+ Bond           85-CG2   134-HGR         106  241
+ Bond           88-CG2   113-SG3         142  601
+ Bond           88-CG2   114-CG2         142  120
+ Bond           88-CG2   121-CG2         142  141
+ Bond           92-HGR    93-CG2         241  107
+ Bond           95-HGR   119-CG2         242  117
+ Bond           99-CG2   109-CG2         110  110
+ Bond          100-CG2   101-CG2         122  111
+ Bond          100-CG2   102-CG2         122  100
+ Bond          101-CG2   108-CG2         111  110
+ Bond          101-CG2   129-HGR         111  241
+ Bond          108-CG2   109-CG2         110  110
+ Bond          113-SG3   116-CG3         601  161
+ Bond          114-CG2   117-HGR         120  243
+ Bond          115-NG3   116-CG3         311  161
+ Bond          115-NG3   118-HGA         311  221
+ Bond          115-NG3   121-CG2         311  141
+ Bond          116-CG3   126-HGA         161  201
+ Bond          119-CG2   120-CG2         117  121
+ Bond          120-CG2   121-CG2         121  141
+
+
+ Angle           2-CG2     1-CG2     6-CG2         108  108  112
+ Angle           2-CG2     1-CG2    70-HGR         108  108  241
+ Angle           6-CG2     1-CG2    70-HGR         112  108  241
+ Angle           1-CG2     2-CG2     3-CG2         108  108  112
+ Angle           1-CG2     2-CG2    71-HGR         108  108  241
+ Angle           3-CG2     2-CG2    71-HGR         112  108  241
+ Angle           2-CG2     3-CG2     4-CG2         108  112  105
+ Angle           2-CG2     3-CG2    72-HGR         108  112  241
+ Angle           4-CG2     3-CG2    72-HGR         105  112  241
+ Angle           3-CG2     4-CG2     5-CG2         112  105  102
+ Angle           3-CG2     4-CG2     7-CG2         112  105  132
+ Angle           5-CG2     4-CG2     7-CG2         102  105  132
+ Angle           4-CG2     5-CG2     6-CG2         105  102  112
+ Angle           4-CG2     5-CG2    10-CG2         105  102  116
+ Angle           6-CG2     5-CG2    10-CG2         112  102  116
+ Angle           1-CG2     6-CG2     5-CG2         108  112  102
+ Angle           1-CG2     6-CG2    73-HGR         108  112  241
+ Angle           5-CG2     6-CG2    73-HGR         102  112  241
+ Angle           4-CG2     7-CG2     8-CG2         105  132  115
+ Angle           4-CG2     7-CG2    11-CG2         105  132  132
+ Angle           8-CG2     7-CG2    11-CG2         115  132  132
+ Angle           7-CG2     8-CG2     9-CG2         132  115  132
+ Angle           7-CG2     8-CG2    24-OG3         132  115  421
+ Angle           9-CG2     8-CG2    24-OG3         132  115  421
+ Angle           8-CG2     9-CG2    10-CG2         115  132  116
+ Angle           8-CG2     9-CG2    21-CG2         115  132  131
+ Angle          10-CG2     9-CG2    21-CG2         116  132  131
+ Angle           5-CG2    10-CG2     9-CG2         102  116  132
+ Angle           5-CG2    10-CG2    74-HGR         102  116  241
+ Angle           9-CG2    10-CG2    74-HGR         132  116  241
+ Angle           7-CG2    11-CG2    12-CG2         132  132  105
+ Angle           7-CG2    11-CG2    16-CG2         132  132  115
+ Angle          12-CG2    11-CG2    16-CG2         105  132  115
+ Angle          11-CG2    12-CG2    13-CG2         132  105  101
+ Angle          11-CG2    12-CG2    17-CG2         132  105  112
+ Angle          13-CG2    12-CG2    17-CG2         101  105  112
+ Angle          12-CG2    13-CG2    14-CG2         105  101  116
+ Angle          12-CG2    13-CG2    20-CG2         105  101  112
+ Angle          14-CG2    13-CG2    20-CG2         116  101  112
+ Angle          13-CG2    14-CG2    15-CG2         101  116  132
+ Angle          13-CG2    14-CG2    75-HGR         101  116  241
+ Angle          15-CG2    14-CG2    75-HGR         132  116  241
+ Angle          14-CG2    15-CG2    16-CG2         116  132  115
+ Angle          14-CG2    15-CG2    22-CG2         116  132  131
+ Angle          16-CG2    15-CG2    22-CG2         115  132  131
+ Angle          11-CG2    16-CG2    15-CG2         132  115  132
+ Angle          11-CG2    16-CG2    23-OG3         132  115  421
+ Angle          15-CG2    16-CG2    23-OG3         132  115  421
+ Angle          12-CG2    17-CG2    18-CG2         105  112  108
+ Angle          12-CG2    17-CG2    76-HGR         105  112  241
+ Angle          18-CG2    17-CG2    76-HGR         108  112  241
+ Angle          17-CG2    18-CG2    19-CG2         112  108  108
+ Angle          17-CG2    18-CG2    77-HGR         112  108  241
+ Angle          19-CG2    18-CG2    77-HGR         108  108  241
+ Angle          18-CG2    19-CG2    20-CG2         108  108  112
+ Angle          18-CG2    19-CG2    78-HGR         108  108  241
+ Angle          20-CG2    19-CG2    78-HGR         112  108  241
+ Angle          13-CG2    20-CG2    19-CG2         101  112  108
+ Angle          13-CG2    20-CG2    79-HGR         101  112  241
+ Angle          19-CG2    20-CG2    79-HGR         108  112  241
+ Angle           9-CG2    21-CG2    25-CG2         132  131  104
+ Angle           9-CG2    21-CG2    29-CG2         132  131  104
+ Angle          25-CG2    21-CG2    29-CG2         104  131  104
+ Angle          15-CG2    22-CG2    30-CG2         132  131  104
+ Angle          15-CG2    22-CG2    34-CG2         132  131  104
+ Angle          30-CG2    22-CG2    34-CG2         104  131  104
+ Angle          16-CG2    23-OG3    35-PG1         115  421  501
+ Angle           8-CG2    24-OG3    35-PG1         115  421  501
+ Angle          21-CG2    25-CG2    26-CG2         131  104  109
+ Angle          21-CG2    25-CG2    44-CG3         131  104  154
+ Angle          26-CG2    25-CG2    44-CG3         109  104  154
+ Angle          25-CG2    26-CG2    27-CG2         104  109  103
+ Angle          25-CG2    26-CG2    80-HGR         104  109  241
+ Angle          27-CG2    26-CG2    80-HGR         103  109  241
+ Angle          26-CG2    27-CG2    28-CG2         109  103  109
+ Angle          26-CG2    27-CG2    46-CG3         109  103  153
+ Angle          28-CG2    27-CG2    46-CG3         109  103  153
+ Angle          27-CG2    28-CG2    29-CG2         103  109  104
+ Angle          27-CG2    28-CG2    81-HGR         103  109  241
+ Angle          29-CG2    28-CG2    81-HGR         104  109  241
+ Angle          21-CG2    29-CG2    28-CG2         131  104  109
+ Angle          21-CG2    29-CG2    47-CG3         131  104  154
+ Angle          28-CG2    29-CG2    47-CG3         109  104  154
+ Angle          22-CG2    30-CG2    31-CG2         131  104  109
+ Angle          22-CG2    30-CG2    38-CG3         131  104  154
+ Angle          31-CG2    30-CG2    38-CG3         109  104  154
+ Angle          30-CG2    31-CG2    32-CG2         104  109  103
+ Angle          30-CG2    31-CG2    82-HGR         104  109  241
+ Angle          32-CG2    31-CG2    82-HGR         103  109  241
+ Angle          31-CG2    32-CG2    33-CG2         109  103  109
+ Angle          31-CG2    32-CG2    54-CG3         109  103  153
+ Angle          33-CG2    32-CG2    54-CG3         109  103  153
+ Angle          32-CG2    33-CG2    34-CG2         103  109  104
+ Angle          32-CG2    33-CG2    83-HGR         103  109  241
+ Angle          34-CG2    33-CG2    83-HGR         104  109  241
+ Angle          22-CG2    34-CG2    33-CG2         131  104  109
+ Angle          22-CG2    34-CG2    41-CG3         131  104  154
+ Angle          33-CG2    34-CG2    41-CG3         109  104  154
+ Angle          23-OG3    35-PG1    24-OG3         421  501  421
+ Angle          23-OG3    35-PG1    36-OG2         421  501  401
+ Angle          23-OG3    35-PG1    37-OG2         421  501  401
+ Angle          24-OG3    35-PG1    36-OG2         421  501  401
+ Angle          24-OG3    35-PG1    37-OG2         421  501  401
+ Angle          36-OG2    35-PG1    37-OG2         401  501  401
+ Angle          30-CG2    38-CG3    56-HGA         104  154  211
+ Angle          30-CG2    38-CG3    57-HGA         104  154  211
+ Angle          30-CG2    38-CG3    86-HGA         104  154  211
+ Angle          56-HGA    38-CG3    57-HGA         211  154  211
+ Angle          56-HGA    38-CG3    86-HGA         211  154  211
+ Angle          57-HGA    38-CG3    86-HGA         211  154  211
+ Angle          52-HGR    39-CG2    58-CG2         241  114  113
+ Angle          52-HGR    39-CG2    85-CG2         241  114  106
+ Angle          58-CG2    39-CG2    85-CG2         113  114  106
+ Angle          34-CG2    41-CG3    89-HGA         104  154  211
+ Angle          34-CG2    41-CG3    90-HGA         104  154  211
+ Angle          34-CG2    41-CG3    91-HGA         104  154  211
+ Angle          89-HGA    41-CG3    90-HGA         211  154  211
+ Angle          89-HGA    41-CG3    91-HGA         211  154  211
+ Angle          90-HGA    41-CG3    91-HGA         211  154  211
+ Angle          94-HGR    42-CG2   114-CG2         242  118  120
+ Angle          94-HGR    42-CG2   119-CG2         242  118  117
+ Angle         114-CG2    42-CG2   119-CG2         120  118  117
+ Angle          49-CG2    43-CG2    62-CG2         124  123  124
+ Angle          49-CG2    43-CG2    68-NG2         124  123  301
+ Angle          62-CG2    43-CG2    68-NG2         124  123  301
+ Angle          25-CG2    44-CG3   110-HGA         104  154  211
+ Angle          25-CG2    44-CG3   111-HGA         104  154  211
+ Angle          25-CG2    44-CG3   112-HGA         104  154  211
+ Angle         110-HGA    44-CG3   111-HGA         211  154  211
+ Angle         110-HGA    44-CG3   112-HGA         211  154  211
+ Angle         111-HGA    44-CG3   112-HGA         211  154  211
+ Angle          99-CG2    45-CG2   100-CG2         110  111  122
+ Angle          99-CG2    45-CG2   128-HGR         110  111  241
+ Angle         100-CG2    45-CG2   128-HGR         122  111  241
+ Angle          27-CG2    46-CG3   103-HGA         103  153  211
+ Angle          27-CG2    46-CG3   104-HGA         103  153  211
+ Angle          27-CG2    46-CG3   105-HGA         103  153  211
+ Angle         103-HGA    46-CG3   104-HGA         211  153  211
+ Angle         103-HGA    46-CG3   105-HGA         211  153  211
+ Angle         104-HGA    46-CG3   105-HGA         211  153  211
+ Angle          29-CG2    47-CG3   124-HGA         104  154  211
+ Angle          29-CG2    47-CG3   125-HGA         104  154  211
+ Angle          29-CG2    47-CG3   127-HGA         104  154  211
+ Angle         124-HGA    47-CG3   125-HGA         211  154  211
+ Angle         124-HGA    47-CG3   127-HGA         211  154  211
+ Angle         125-HGA    47-CG3   127-HGA         211  154  211
+ Angle          43-CG2    49-CG2    93-CG2         123  124  107
+ Angle          43-CG2    49-CG2   133-HGR         123  124  245
+ Angle          93-CG2    49-CG2   133-HGR         107  124  245
+ Angle          32-CG2    54-CG3    96-HGA         103  153  211
+ Angle          32-CG2    54-CG3    97-HGA         103  153  211
+ Angle          32-CG2    54-CG3    98-HGA         103  153  211
+ Angle          96-HGA    54-CG3    97-HGA         211  153  211
+ Angle          96-HGA    54-CG3    98-HGA         211  153  211
+ Angle          97-HGA    54-CG3    98-HGA         211  153  211
+ Angle          51-HGR    55-CG2    85-CG2         241  110  106
+ Angle          51-HGR    55-CG2    87-CG2         241  110  106
+ Angle          85-CG2    55-CG2    87-CG2         106  110  106
+ Angle          39-CG2    58-CG2    59-CG2         114  113  114
+ Angle          39-CG2    58-CG2   116-CG3         114  113  161
+ Angle          59-CG2    58-CG2   116-CG3         114  113  161
+ Angle          50-HGR    59-CG2    58-CG2         241  114  113
+ Angle          50-HGR    59-CG2    87-CG2         241  114  106
+ Angle          58-CG2    59-CG2    87-CG2         113  114  106
+ Angle          61-CG2    60-CG2    63-OG3         107  119  411
+ Angle          61-CG2    60-CG2    93-CG2         107  119  107
+ Angle          63-OG3    60-CG2    93-CG2         411  119  107
+ Angle          60-CG2    61-CG2    62-CG2         119  107  124
+ Angle          60-CG2    61-CG2   106-HGR         119  107  241
+ Angle          62-CG2    61-CG2   106-HGR         124  107  241
+ Angle          43-CG2    62-CG2    61-CG2         123  124  107
+ Angle          43-CG2    62-CG2   122-HGR         123  124  245
+ Angle          61-CG2    62-CG2   122-HGR         107  124  245
+ Angle          60-CG2    63-OG3    65-CG3         119  411  151
+ Angle         102-CG2    64-CG3   130-HGA         100  152  211
+ Angle         102-CG2    64-CG3   131-HGA         100  152  211
+ Angle         102-CG2    64-CG3   132-HGA         100  152  211
+ Angle         130-HGA    64-CG3   131-HGA         211  152  211
+ Angle         130-HGA    64-CG3   132-HGA         211  152  211
+ Angle         131-HGA    64-CG3   132-HGA         211  152  211
+ Angle          48-HGA    65-CG3    63-OG3         211  151  411
+ Angle          48-HGA    65-CG3   107-HGA         211  151  211
+ Angle          48-HGA    65-CG3   123-HGA         211  151  211
+ Angle          63-OG3    65-CG3   107-HGA         411  151  211
+ Angle          63-OG3    65-CG3   123-HGA         411  151  211
+ Angle         107-HGA    65-CG3   123-HGA         211  151  211
+ Angle          43-CG2    68-NG2    84-HGA         123  301  231
+ Angle          43-CG2    68-NG2   102-CG2         123  301  100
+ Angle          84-HGA    68-NG2   102-CG2         231  301  100
+ Angle          39-CG2    85-CG2    55-CG2         114  106  110
+ Angle          39-CG2    85-CG2   134-HGR         114  106  241
+ Angle          55-CG2    85-CG2   134-HGR         110  106  241
+ Angle          40-HGR    87-CG2    55-CG2         241  106  110
+ Angle          40-HGR    87-CG2    59-CG2         241  106  114
+ Angle          55-CG2    87-CG2    59-CG2         110  106  114
+ Angle         113-SG3    88-CG2   114-CG2         601  142  120
+ Angle         113-SG3    88-CG2   121-CG2         601  142  141
+ Angle         114-CG2    88-CG2   121-CG2         120  142  141
+ Angle          49-CG2    93-CG2    60-CG2         124  107  119
+ Angle          49-CG2    93-CG2    92-HGR         124  107  241
+ Angle          60-CG2    93-CG2    92-HGR         119  107  241
+ Angle          45-CG2    99-CG2    69-HGR         111  110  241
+ Angle          45-CG2    99-CG2   109-CG2         111  110  110
+ Angle          69-HGR    99-CG2   109-CG2         241  110  110
+ Angle          45-CG2   100-CG2   101-CG2         111  122  111
+ Angle          45-CG2   100-CG2   102-CG2         111  122  100
+ Angle         101-CG2   100-CG2   102-CG2         111  122  100
+ Angle         100-CG2   101-CG2   108-CG2         122  111  110
+ Angle         100-CG2   101-CG2   129-HGR         122  111  241
+ Angle         108-CG2   101-CG2   129-HGR         110  111  241
+ Angle          64-CG3   102-CG2    68-NG2         152  100  301
+ Angle          64-CG3   102-CG2   100-CG2         152  100  122
+ Angle          68-NG2   102-CG2   100-CG2         301  100  122
+ Angle          66-HGR   108-CG2   101-CG2         241  110  111
+ Angle          66-HGR   108-CG2   109-CG2         241  110  110
+ Angle         101-CG2   108-CG2   109-CG2         111  110  110
+ Angle          67-HGR   109-CG2    99-CG2         241  110  110
+ Angle          67-HGR   109-CG2   108-CG2         241  110  110
+ Angle          99-CG2   109-CG2   108-CG2         110  110  110
+ Angle          88-CG2   113-SG3   116-CG3         142  601  161
+ Angle          42-CG2   114-CG2    88-CG2         118  120  142
+ Angle          42-CG2   114-CG2   117-HGR         118  120  243
+ Angle          88-CG2   114-CG2   117-HGR         142  120  243
+ Angle         116-CG3   115-NG3   118-HGA         161  311  221
+ Angle         116-CG3   115-NG3   121-CG2         161  311  141
+ Angle         118-HGA   115-NG3   121-CG2         221  311  141
+ Angle          58-CG2   116-CG3   113-SG3         113  161  601
+ Angle          58-CG2   116-CG3   115-NG3         113  161  311
+ Angle          58-CG2   116-CG3   126-HGA         113  161  201
+ Angle         113-SG3   116-CG3   115-NG3         601  161  311
+ Angle         113-SG3   116-CG3   126-HGA         601  161  201
+ Angle         115-NG3   116-CG3   126-HGA         311  161  201
+ Angle          42-CG2   119-CG2    95-HGR         118  117  242
+ Angle          42-CG2   119-CG2   120-CG2         118  117  121
+ Angle          95-HGR   119-CG2   120-CG2         242  117  121
+ Angle          53-HGR   120-CG2   119-CG2         244  121  117
+ Angle          53-HGR   120-CG2   121-CG2         244  121  141
+ Angle         119-CG2   120-CG2   121-CG2         117  121  141
+ Angle          88-CG2   121-CG2   115-NG3         142  141  311
+ Angle          88-CG2   121-CG2   120-CG2         142  141  121
+ Angle         115-NG3   121-CG2   120-CG2         311  141  121
+
+
+ Torsion         6-CG2     1-CG2     2-CG2     3-CG2       112  108  108  112
+ Torsion         6-CG2     1-CG2     2-CG2    71-HGR       112  108  108  241
+ Torsion        70-HGR     1-CG2     2-CG2     3-CG2       241  108  108  112
+ Torsion        70-HGR     1-CG2     2-CG2    71-HGR       241  108  108  241
+ Torsion         2-CG2     1-CG2     6-CG2     5-CG2       108  108  112  102
+ Torsion         2-CG2     1-CG2     6-CG2    73-HGR       108  108  112  241
+ Torsion        70-HGR     1-CG2     6-CG2     5-CG2       241  108  112  102
+ Torsion        70-HGR     1-CG2     6-CG2    73-HGR       241  108  112  241
+ Torsion         1-CG2     2-CG2     3-CG2     4-CG2       108  108  112  105
+ Torsion         1-CG2     2-CG2     3-CG2    72-HGR       108  108  112  241
+ Torsion        71-HGR     2-CG2     3-CG2     4-CG2       241  108  112  105
+ Torsion        71-HGR     2-CG2     3-CG2    72-HGR       241  108  112  241
+ Torsion         2-CG2     3-CG2     4-CG2     5-CG2       108  112  105  102
+ Torsion         2-CG2     3-CG2     4-CG2     7-CG2       108  112  105  132
+ Torsion        72-HGR     3-CG2     4-CG2     5-CG2       241  112  105  102
+ Torsion        72-HGR     3-CG2     4-CG2     7-CG2       241  112  105  132
+ Torsion         3-CG2     4-CG2     5-CG2     6-CG2       112  105  102  112
+ Torsion         3-CG2     4-CG2     5-CG2    10-CG2       112  105  102  116
+ Torsion         7-CG2     4-CG2     5-CG2     6-CG2       132  105  102  112
+ Torsion         7-CG2     4-CG2     5-CG2    10-CG2       132  105  102  116
+ Torsion         3-CG2     4-CG2     7-CG2     8-CG2       112  105  132  115
+ Torsion         3-CG2     4-CG2     7-CG2    11-CG2       112  105  132  132
+ Torsion         5-CG2     4-CG2     7-CG2     8-CG2       102  105  132  115
+ Torsion         5-CG2     4-CG2     7-CG2    11-CG2       102  105  132  132
+ Torsion         4-CG2     5-CG2     6-CG2     1-CG2       105  102  112  108
+ Torsion         4-CG2     5-CG2     6-CG2    73-HGR       105  102  112  241
+ Torsion        10-CG2     5-CG2     6-CG2     1-CG2       116  102  112  108
+ Torsion        10-CG2     5-CG2     6-CG2    73-HGR       116  102  112  241
+ Torsion         4-CG2     5-CG2    10-CG2     9-CG2       105  102  116  132
+ Torsion         4-CG2     5-CG2    10-CG2    74-HGR       105  102  116  241
+ Torsion         6-CG2     5-CG2    10-CG2     9-CG2       112  102  116  132
+ Torsion         6-CG2     5-CG2    10-CG2    74-HGR       112  102  116  241
+ Torsion         4-CG2     7-CG2     8-CG2     9-CG2       105  132  115  132
+ Torsion         4-CG2     7-CG2     8-CG2    24-OG3       105  132  115  421
+ Torsion        11-CG2     7-CG2     8-CG2     9-CG2       132  132  115  132
+ Torsion        11-CG2     7-CG2     8-CG2    24-OG3       132  132  115  421
+ Torsion         4-CG2     7-CG2    11-CG2    12-CG2       105  132  132  105
+ Torsion         4-CG2     7-CG2    11-CG2    16-CG2       105  132  132  115
+ Torsion         8-CG2     7-CG2    11-CG2    12-CG2       115  132  132  105
+ Torsion         8-CG2     7-CG2    11-CG2    16-CG2       115  132  132  115
+ Torsion         7-CG2     8-CG2     9-CG2    10-CG2       132  115  132  116
+ Torsion         7-CG2     8-CG2     9-CG2    21-CG2       132  115  132  131
+ Torsion        24-OG3     8-CG2     9-CG2    10-CG2       421  115  132  116
+ Torsion        24-OG3     8-CG2     9-CG2    21-CG2       421  115  132  131
+ Torsion         7-CG2     8-CG2    24-OG3    35-PG1       132  115  421  501
+ Torsion         9-CG2     8-CG2    24-OG3    35-PG1       132  115  421  501
+ Torsion         8-CG2     9-CG2    10-CG2     5-CG2       115  132  116  102
+ Torsion         8-CG2     9-CG2    10-CG2    74-HGR       115  132  116  241
+ Torsion        21-CG2     9-CG2    10-CG2     5-CG2       131  132  116  102
+ Torsion        21-CG2     9-CG2    10-CG2    74-HGR       131  132  116  241
+ Torsion         8-CG2     9-CG2    21-CG2    25-CG2       115  132  131  104
+ Torsion         8-CG2     9-CG2    21-CG2    29-CG2       115  132  131  104
+ Torsion        10-CG2     9-CG2    21-CG2    25-CG2       116  132  131  104
+ Torsion        10-CG2     9-CG2    21-CG2    29-CG2       116  132  131  104
+ Torsion         7-CG2    11-CG2    12-CG2    13-CG2       132  132  105  101
+ Torsion         7-CG2    11-CG2    12-CG2    17-CG2       132  132  105  112
+ Torsion        16-CG2    11-CG2    12-CG2    13-CG2       115  132  105  101
+ Torsion        16-CG2    11-CG2    12-CG2    17-CG2       115  132  105  112
+ Torsion         7-CG2    11-CG2    16-CG2    15-CG2       132  132  115  132
+ Torsion         7-CG2    11-CG2    16-CG2    23-OG3       132  132  115  421
+ Torsion        12-CG2    11-CG2    16-CG2    15-CG2       105  132  115  132
+ Torsion        12-CG2    11-CG2    16-CG2    23-OG3       105  132  115  421
+ Torsion        11-CG2    12-CG2    13-CG2    14-CG2       132  105  101  116
+ Torsion        11-CG2    12-CG2    13-CG2    20-CG2       132  105  101  112
+ Torsion        17-CG2    12-CG2    13-CG2    14-CG2       112  105  101  116
+ Torsion        17-CG2    12-CG2    13-CG2    20-CG2       112  105  101  112
+ Torsion        11-CG2    12-CG2    17-CG2    18-CG2       132  105  112  108
+ Torsion        11-CG2    12-CG2    17-CG2    76-HGR       132  105  112  241
+ Torsion        13-CG2    12-CG2    17-CG2    18-CG2       101  105  112  108
+ Torsion        13-CG2    12-CG2    17-CG2    76-HGR       101  105  112  241
+ Torsion        12-CG2    13-CG2    14-CG2    15-CG2       105  101  116  132
+ Torsion        12-CG2    13-CG2    14-CG2    75-HGR       105  101  116  241
+ Torsion        20-CG2    13-CG2    14-CG2    15-CG2       112  101  116  132
+ Torsion        20-CG2    13-CG2    14-CG2    75-HGR       112  101  116  241
+ Torsion        12-CG2    13-CG2    20-CG2    19-CG2       105  101  112  108
+ Torsion        12-CG2    13-CG2    20-CG2    79-HGR       105  101  112  241
+ Torsion        14-CG2    13-CG2    20-CG2    19-CG2       116  101  112  108
+ Torsion        14-CG2    13-CG2    20-CG2    79-HGR       116  101  112  241
+ Torsion        13-CG2    14-CG2    15-CG2    16-CG2       101  116  132  115
+ Torsion        13-CG2    14-CG2    15-CG2    22-CG2       101  116  132  131
+ Torsion        75-HGR    14-CG2    15-CG2    16-CG2       241  116  132  115
+ Torsion        75-HGR    14-CG2    15-CG2    22-CG2       241  116  132  131
+ Torsion        14-CG2    15-CG2    16-CG2    11-CG2       116  132  115  132
+ Torsion        14-CG2    15-CG2    16-CG2    23-OG3       116  132  115  421
+ Torsion        22-CG2    15-CG2    16-CG2    11-CG2       131  132  115  132
+ Torsion        22-CG2    15-CG2    16-CG2    23-OG3       131  132  115  421
+ Torsion        14-CG2    15-CG2    22-CG2    30-CG2       116  132  131  104
+ Torsion        14-CG2    15-CG2    22-CG2    34-CG2       116  132  131  104
+ Torsion        16-CG2    15-CG2    22-CG2    30-CG2       115  132  131  104
+ Torsion        16-CG2    15-CG2    22-CG2    34-CG2       115  132  131  104
+ Torsion        11-CG2    16-CG2    23-OG3    35-PG1       132  115  421  501
+ Torsion        15-CG2    16-CG2    23-OG3    35-PG1       132  115  421  501
+ Torsion        12-CG2    17-CG2    18-CG2    19-CG2       105  112  108  108
+ Torsion        12-CG2    17-CG2    18-CG2    77-HGR       105  112  108  241
+ Torsion        76-HGR    17-CG2    18-CG2    19-CG2       241  112  108  108
+ Torsion        76-HGR    17-CG2    18-CG2    77-HGR       241  112  108  241
+ Torsion        17-CG2    18-CG2    19-CG2    20-CG2       112  108  108  112
+ Torsion        17-CG2    18-CG2    19-CG2    78-HGR       112  108  108  241
+ Torsion        77-HGR    18-CG2    19-CG2    20-CG2       241  108  108  112
+ Torsion        77-HGR    18-CG2    19-CG2    78-HGR       241  108  108  241
+ Torsion        18-CG2    19-CG2    20-CG2    13-CG2       108  108  112  101
+ Torsion        18-CG2    19-CG2    20-CG2    79-HGR       108  108  112  241
+ Torsion        78-HGR    19-CG2    20-CG2    13-CG2       241  108  112  101
+ Torsion        78-HGR    19-CG2    20-CG2    79-HGR       241  108  112  241
+ Torsion         9-CG2    21-CG2    25-CG2    26-CG2       132  131  104  109
+ Torsion         9-CG2    21-CG2    25-CG2    44-CG3       132  131  104  154
+ Torsion        29-CG2    21-CG2    25-CG2    26-CG2       104  131  104  109
+ Torsion        29-CG2    21-CG2    25-CG2    44-CG3       104  131  104  154
+ Torsion         9-CG2    21-CG2    29-CG2    28-CG2       132  131  104  109
+ Torsion         9-CG2    21-CG2    29-CG2    47-CG3       132  131  104  154
+ Torsion        25-CG2    21-CG2    29-CG2    28-CG2       104  131  104  109
+ Torsion        25-CG2    21-CG2    29-CG2    47-CG3       104  131  104  154
+ Torsion        15-CG2    22-CG2    30-CG2    31-CG2       132  131  104  109
+ Torsion        15-CG2    22-CG2    30-CG2    38-CG3       132  131  104  154
+ Torsion        34-CG2    22-CG2    30-CG2    31-CG2       104  131  104  109
+ Torsion        34-CG2    22-CG2    30-CG2    38-CG3       104  131  104  154
+ Torsion        15-CG2    22-CG2    34-CG2    33-CG2       132  131  104  109
+ Torsion        15-CG2    22-CG2    34-CG2    41-CG3       132  131  104  154
+ Torsion        30-CG2    22-CG2    34-CG2    33-CG2       104  131  104  109
+ Torsion        30-CG2    22-CG2    34-CG2    41-CG3       104  131  104  154
+ Torsion        16-CG2    23-OG3    35-PG1    24-OG3       115  421  501  421
+ Torsion        16-CG2    23-OG3    35-PG1    36-OG2       115  421  501  401
+ Torsion        16-CG2    23-OG3    35-PG1    37-OG2       115  421  501  401
+ Torsion         8-CG2    24-OG3    35-PG1    23-OG3       115  421  501  421
+ Torsion         8-CG2    24-OG3    35-PG1    36-OG2       115  421  501  401
+ Torsion         8-CG2    24-OG3    35-PG1    37-OG2       115  421  501  401
+ Torsion        21-CG2    25-CG2    26-CG2    27-CG2       131  104  109  103
+ Torsion        21-CG2    25-CG2    26-CG2    80-HGR       131  104  109  241
+ Torsion        44-CG3    25-CG2    26-CG2    27-CG2       154  104  109  103
+ Torsion        44-CG3    25-CG2    26-CG2    80-HGR       154  104  109  241
+ Torsion        21-CG2    25-CG2    44-CG3   110-HGA       131  104  154  211
+ Torsion        21-CG2    25-CG2    44-CG3   111-HGA       131  104  154  211
+ Torsion        21-CG2    25-CG2    44-CG3   112-HGA       131  104  154  211
+ Torsion        26-CG2    25-CG2    44-CG3   110-HGA       109  104  154  211
+ Torsion        26-CG2    25-CG2    44-CG3   111-HGA       109  104  154  211
+ Torsion        26-CG2    25-CG2    44-CG3   112-HGA       109  104  154  211
+ Torsion        25-CG2    26-CG2    27-CG2    28-CG2       104  109  103  109
+ Torsion        25-CG2    26-CG2    27-CG2    46-CG3       104  109  103  153
+ Torsion        80-HGR    26-CG2    27-CG2    28-CG2       241  109  103  109
+ Torsion        80-HGR    26-CG2    27-CG2    46-CG3       241  109  103  153
+ Torsion        26-CG2    27-CG2    28-CG2    29-CG2       109  103  109  104
+ Torsion        26-CG2    27-CG2    28-CG2    81-HGR       109  103  109  241
+ Torsion        46-CG3    27-CG2    28-CG2    29-CG2       153  103  109  104
+ Torsion        46-CG3    27-CG2    28-CG2    81-HGR       153  103  109  241
+ Torsion        26-CG2    27-CG2    46-CG3   103-HGA       109  103  153  211
+ Torsion        26-CG2    27-CG2    46-CG3   104-HGA       109  103  153  211
+ Torsion        26-CG2    27-CG2    46-CG3   105-HGA       109  103  153  211
+ Torsion        28-CG2    27-CG2    46-CG3   103-HGA       109  103  153  211
+ Torsion        28-CG2    27-CG2    46-CG3   104-HGA       109  103  153  211
+ Torsion        28-CG2    27-CG2    46-CG3   105-HGA       109  103  153  211
+ Torsion        27-CG2    28-CG2    29-CG2    21-CG2       103  109  104  131
+ Torsion        27-CG2    28-CG2    29-CG2    47-CG3       103  109  104  154
+ Torsion        81-HGR    28-CG2    29-CG2    21-CG2       241  109  104  131
+ Torsion        81-HGR    28-CG2    29-CG2    47-CG3       241  109  104  154
+ Torsion        21-CG2    29-CG2    47-CG3   124-HGA       131  104  154  211
+ Torsion        21-CG2    29-CG2    47-CG3   125-HGA       131  104  154  211
+ Torsion        21-CG2    29-CG2    47-CG3   127-HGA       131  104  154  211
+ Torsion        28-CG2    29-CG2    47-CG3   124-HGA       109  104  154  211
+ Torsion        28-CG2    29-CG2    47-CG3   125-HGA       109  104  154  211
+ Torsion        28-CG2    29-CG2    47-CG3   127-HGA       109  104  154  211
+ Torsion        22-CG2    30-CG2    31-CG2    32-CG2       131  104  109  103
+ Torsion        22-CG2    30-CG2    31-CG2    82-HGR       131  104  109  241
+ Torsion        38-CG3    30-CG2    31-CG2    32-CG2       154  104  109  103
+ Torsion        38-CG3    30-CG2    31-CG2    82-HGR       154  104  109  241
+ Torsion        22-CG2    30-CG2    38-CG3    56-HGA       131  104  154  211
+ Torsion        22-CG2    30-CG2    38-CG3    57-HGA       131  104  154  211
+ Torsion        22-CG2    30-CG2    38-CG3    86-HGA       131  104  154  211
+ Torsion        31-CG2    30-CG2    38-CG3    56-HGA       109  104  154  211
+ Torsion        31-CG2    30-CG2    38-CG3    57-HGA       109  104  154  211
+ Torsion        31-CG2    30-CG2    38-CG3    86-HGA       109  104  154  211
+ Torsion        30-CG2    31-CG2    32-CG2    33-CG2       104  109  103  109
+ Torsion        30-CG2    31-CG2    32-CG2    54-CG3       104  109  103  153
+ Torsion        82-HGR    31-CG2    32-CG2    33-CG2       241  109  103  109
+ Torsion        82-HGR    31-CG2    32-CG2    54-CG3       241  109  103  153
+ Torsion        31-CG2    32-CG2    33-CG2    34-CG2       109  103  109  104
+ Torsion        31-CG2    32-CG2    33-CG2    83-HGR       109  103  109  241
+ Torsion        54-CG3    32-CG2    33-CG2    34-CG2       153  103  109  104
+ Torsion        54-CG3    32-CG2    33-CG2    83-HGR       153  103  109  241
+ Torsion        31-CG2    32-CG2    54-CG3    96-HGA       109  103  153  211
+ Torsion        31-CG2    32-CG2    54-CG3    97-HGA       109  103  153  211
+ Torsion        31-CG2    32-CG2    54-CG3    98-HGA       109  103  153  211
+ Torsion        33-CG2    32-CG2    54-CG3    96-HGA       109  103  153  211
+ Torsion        33-CG2    32-CG2    54-CG3    97-HGA       109  103  153  211
+ Torsion        33-CG2    32-CG2    54-CG3    98-HGA       109  103  153  211
+ Torsion        32-CG2    33-CG2    34-CG2    22-CG2       103  109  104  131
+ Torsion        32-CG2    33-CG2    34-CG2    41-CG3       103  109  104  154
+ Torsion        83-HGR    33-CG2    34-CG2    22-CG2       241  109  104  131
+ Torsion        83-HGR    33-CG2    34-CG2    41-CG3       241  109  104  154
+ Torsion        22-CG2    34-CG2    41-CG3    89-HGA       131  104  154  211
+ Torsion        22-CG2    34-CG2    41-CG3    90-HGA       131  104  154  211
+ Torsion        22-CG2    34-CG2    41-CG3    91-HGA       131  104  154  211
+ Torsion        33-CG2    34-CG2    41-CG3    89-HGA       109  104  154  211
+ Torsion        33-CG2    34-CG2    41-CG3    90-HGA       109  104  154  211
+ Torsion        33-CG2    34-CG2    41-CG3    91-HGA       109  104  154  211
+ Torsion        52-HGR    39-CG2    58-CG2    59-CG2       241  114  113  114
+ Torsion        52-HGR    39-CG2    58-CG2   116-CG3       241  114  113  161
+ Torsion        85-CG2    39-CG2    58-CG2    59-CG2       106  114  113  114
+ Torsion        85-CG2    39-CG2    58-CG2   116-CG3       106  114  113  161
+ Torsion        52-HGR    39-CG2    85-CG2    55-CG2       241  114  106  110
+ Torsion        52-HGR    39-CG2    85-CG2   134-HGR       241  114  106  241
+ Torsion        58-CG2    39-CG2    85-CG2    55-CG2       113  114  106  110
+ Torsion        58-CG2    39-CG2    85-CG2   134-HGR       113  114  106  241
+ Torsion        94-HGR    42-CG2   114-CG2    88-CG2       242  118  120  142
+ Torsion        94-HGR    42-CG2   114-CG2   117-HGR       242  118  120  243
+ Torsion       119-CG2    42-CG2   114-CG2    88-CG2       117  118  120  142
+ Torsion       119-CG2    42-CG2   114-CG2   117-HGR       117  118  120  243
+ Torsion        94-HGR    42-CG2   119-CG2    95-HGR       242  118  117  242
+ Torsion        94-HGR    42-CG2   119-CG2   120-CG2       242  118  117  121
+ Torsion       114-CG2    42-CG2   119-CG2    95-HGR       120  118  117  242
+ Torsion       114-CG2    42-CG2   119-CG2   120-CG2       120  118  117  121
+ Torsion        62-CG2    43-CG2    49-CG2    93-CG2       124  123  124  107
+ Torsion        62-CG2    43-CG2    49-CG2   133-HGR       124  123  124  245
+ Torsion        68-NG2    43-CG2    49-CG2    93-CG2       301  123  124  107
+ Torsion        68-NG2    43-CG2    49-CG2   133-HGR       301  123  124  245
+ Torsion        49-CG2    43-CG2    62-CG2    61-CG2       124  123  124  107
+ Torsion        49-CG2    43-CG2    62-CG2   122-HGR       124  123  124  245
+ Torsion        68-NG2    43-CG2    62-CG2    61-CG2       301  123  124  107
+ Torsion        68-NG2    43-CG2    62-CG2   122-HGR       301  123  124  245
+ Torsion        49-CG2    43-CG2    68-NG2    84-HGA       124  123  301  231
+ Torsion        49-CG2    43-CG2    68-NG2   102-CG2       124  123  301  100
+ Torsion        62-CG2    43-CG2    68-NG2    84-HGA       124  123  301  231
+ Torsion        62-CG2    43-CG2    68-NG2   102-CG2       124  123  301  100
+ Torsion       100-CG2    45-CG2    99-CG2    69-HGR       122  111  110  241
+ Torsion       100-CG2    45-CG2    99-CG2   109-CG2       122  111  110  110
+ Torsion       128-HGR    45-CG2    99-CG2    69-HGR       241  111  110  241
+ Torsion       128-HGR    45-CG2    99-CG2   109-CG2       241  111  110  110
+ Torsion        99-CG2    45-CG2   100-CG2   101-CG2       110  111  122  111
+ Torsion        99-CG2    45-CG2   100-CG2   102-CG2       110  111  122  100
+ Torsion       128-HGR    45-CG2   100-CG2   101-CG2       241  111  122  111
+ Torsion       128-HGR    45-CG2   100-CG2   102-CG2       241  111  122  100
+ Torsion        43-CG2    49-CG2    93-CG2    60-CG2       123  124  107  119
+ Torsion        43-CG2    49-CG2    93-CG2    92-HGR       123  124  107  241
+ Torsion       133-HGR    49-CG2    93-CG2    60-CG2       245  124  107  119
+ Torsion       133-HGR    49-CG2    93-CG2    92-HGR       245  124  107  241
+ Torsion        51-HGR    55-CG2    85-CG2    39-CG2       241  110  106  114
+ Torsion        51-HGR    55-CG2    85-CG2   134-HGR       241  110  106  241
+ Torsion        87-CG2    55-CG2    85-CG2    39-CG2       106  110  106  114
+ Torsion        87-CG2    55-CG2    85-CG2   134-HGR       106  110  106  241
+ Torsion        51-HGR    55-CG2    87-CG2    40-HGR       241  110  106  241
+ Torsion        51-HGR    55-CG2    87-CG2    59-CG2       241  110  106  114
+ Torsion        85-CG2    55-CG2    87-CG2    40-HGR       106  110  106  241
+ Torsion        85-CG2    55-CG2    87-CG2    59-CG2       106  110  106  114
+ Torsion        39-CG2    58-CG2    59-CG2    50-HGR       114  113  114  241
+ Torsion        39-CG2    58-CG2    59-CG2    87-CG2       114  113  114  106
+ Torsion       116-CG3    58-CG2    59-CG2    50-HGR       161  113  114  241
+ Torsion       116-CG3    58-CG2    59-CG2    87-CG2       161  113  114  106
+ Torsion        39-CG2    58-CG2   116-CG3   113-SG3       114  113  161  601
+ Torsion        39-CG2    58-CG2   116-CG3   115-NG3       114  113  161  311
+ Torsion        39-CG2    58-CG2   116-CG3   126-HGA       114  113  161  201
+ Torsion        59-CG2    58-CG2   116-CG3   113-SG3       114  113  161  601
+ Torsion        59-CG2    58-CG2   116-CG3   115-NG3       114  113  161  311
+ Torsion        59-CG2    58-CG2   116-CG3   126-HGA       114  113  161  201
+ Torsion        50-HGR    59-CG2    87-CG2    40-HGR       241  114  106  241
+ Torsion        50-HGR    59-CG2    87-CG2    55-CG2       241  114  106  110
+ Torsion        58-CG2    59-CG2    87-CG2    40-HGR       113  114  106  241
+ Torsion        58-CG2    59-CG2    87-CG2    55-CG2       113  114  106  110
+ Torsion        63-OG3    60-CG2    61-CG2    62-CG2       411  119  107  124
+ Torsion        63-OG3    60-CG2    61-CG2   106-HGR       411  119  107  241
+ Torsion        93-CG2    60-CG2    61-CG2    62-CG2       107  119  107  124
+ Torsion        93-CG2    60-CG2    61-CG2   106-HGR       107  119  107  241
+ Torsion        61-CG2    60-CG2    63-OG3    65-CG3       107  119  411  151
+ Torsion        93-CG2    60-CG2    63-OG3    65-CG3       107  119  411  151
+ Torsion        61-CG2    60-CG2    93-CG2    49-CG2       107  119  107  124
+ Torsion        61-CG2    60-CG2    93-CG2    92-HGR       107  119  107  241
+ Torsion        63-OG3    60-CG2    93-CG2    49-CG2       411  119  107  124
+ Torsion        63-OG3    60-CG2    93-CG2    92-HGR       411  119  107  241
+ Torsion        60-CG2    61-CG2    62-CG2    43-CG2       119  107  124  123
+ Torsion        60-CG2    61-CG2    62-CG2   122-HGR       119  107  124  245
+ Torsion       106-HGR    61-CG2    62-CG2    43-CG2       241  107  124  123
+ Torsion       106-HGR    61-CG2    62-CG2   122-HGR       241  107  124  245
+ Torsion        60-CG2    63-OG3    65-CG3    48-HGA       119  411  151  211
+ Torsion        60-CG2    63-OG3    65-CG3   107-HGA       119  411  151  211
+ Torsion        60-CG2    63-OG3    65-CG3   123-HGA       119  411  151  211
+ Torsion       130-HGA    64-CG3   102-CG2    68-NG2       211  152  100  301
+ Torsion       130-HGA    64-CG3   102-CG2   100-CG2       211  152  100  122
+ Torsion       131-HGA    64-CG3   102-CG2    68-NG2       211  152  100  301
+ Torsion       131-HGA    64-CG3   102-CG2   100-CG2       211  152  100  122
+ Torsion       132-HGA    64-CG3   102-CG2    68-NG2       211  152  100  301
+ Torsion       132-HGA    64-CG3   102-CG2   100-CG2       211  152  100  122
+ Torsion        43-CG2    68-NG2   102-CG2    64-CG3       123  301  100  152
+ Torsion        43-CG2    68-NG2   102-CG2   100-CG2       123  301  100  122
+ Torsion        84-HGA    68-NG2   102-CG2    64-CG3       231  301  100  152
+ Torsion        84-HGA    68-NG2   102-CG2   100-CG2       231  301  100  122
+ Torsion       114-CG2    88-CG2   113-SG3   116-CG3       120  142  601  161
+ Torsion       121-CG2    88-CG2   113-SG3   116-CG3       141  142  601  161
+ Torsion       113-SG3    88-CG2   114-CG2    42-CG2       601  142  120  118
+ Torsion       113-SG3    88-CG2   114-CG2   117-HGR       601  142  120  243
+ Torsion       121-CG2    88-CG2   114-CG2    42-CG2       141  142  120  118
+ Torsion       121-CG2    88-CG2   114-CG2   117-HGR       141  142  120  243
+ Torsion       113-SG3    88-CG2   121-CG2   115-NG3       601  142  141  311
+ Torsion       113-SG3    88-CG2   121-CG2   120-CG2       601  142  141  121
+ Torsion       114-CG2    88-CG2   121-CG2   115-NG3       120  142  141  311
+ Torsion       114-CG2    88-CG2   121-CG2   120-CG2       120  142  141  121
+ Torsion        45-CG2    99-CG2   109-CG2    67-HGR       111  110  110  241
+ Torsion        45-CG2    99-CG2   109-CG2   108-CG2       111  110  110  110
+ Torsion        69-HGR    99-CG2   109-CG2    67-HGR       241  110  110  241
+ Torsion        69-HGR    99-CG2   109-CG2   108-CG2       241  110  110  110
+ Torsion        45-CG2   100-CG2   101-CG2   108-CG2       111  122  111  110
+ Torsion        45-CG2   100-CG2   101-CG2   129-HGR       111  122  111  241
+ Torsion       102-CG2   100-CG2   101-CG2   108-CG2       100  122  111  110
+ Torsion       102-CG2   100-CG2   101-CG2   129-HGR       100  122  111  241
+ Torsion        45-CG2   100-CG2   102-CG2    64-CG3       111  122  100  152
+ Torsion        45-CG2   100-CG2   102-CG2    68-NG2       111  122  100  301
+ Torsion       101-CG2   100-CG2   102-CG2    64-CG3       111  122  100  152
+ Torsion       101-CG2   100-CG2   102-CG2    68-NG2       111  122  100  301
+ Torsion       100-CG2   101-CG2   108-CG2    66-HGR       122  111  110  241
+ Torsion       100-CG2   101-CG2   108-CG2   109-CG2       122  111  110  110
+ Torsion       129-HGR   101-CG2   108-CG2    66-HGR       241  111  110  241
+ Torsion       129-HGR   101-CG2   108-CG2   109-CG2       241  111  110  110
+ Torsion        66-HGR   108-CG2   109-CG2    67-HGR       241  110  110  241
+ Torsion        66-HGR   108-CG2   109-CG2    99-CG2       241  110  110  110
+ Torsion       101-CG2   108-CG2   109-CG2    67-HGR       111  110  110  241
+ Torsion       101-CG2   108-CG2   109-CG2    99-CG2       111  110  110  110
+ Torsion        88-CG2   113-SG3   116-CG3    58-CG2       142  601  161  113
+ Torsion        88-CG2   113-SG3   116-CG3   115-NG3       142  601  161  311
+ Torsion        88-CG2   113-SG3   116-CG3   126-HGA       142  601  161  201
+ Torsion       118-HGA   115-NG3   116-CG3    58-CG2       221  311  161  113
+ Torsion       118-HGA   115-NG3   116-CG3   113-SG3       221  311  161  601
+ Torsion       118-HGA   115-NG3   116-CG3   126-HGA       221  311  161  201
+ Torsion       121-CG2   115-NG3   116-CG3    58-CG2       141  311  161  113
+ Torsion       121-CG2   115-NG3   116-CG3   113-SG3       141  311  161  601
+ Torsion       121-CG2   115-NG3   116-CG3   126-HGA       141  311  161  201
+ Torsion       116-CG3   115-NG3   121-CG2    88-CG2       161  311  141  142
+ Torsion       116-CG3   115-NG3   121-CG2   120-CG2       161  311  141  121
+ Torsion       118-HGA   115-NG3   121-CG2    88-CG2       221  311  141  142
+ Torsion       118-HGA   115-NG3   121-CG2   120-CG2       221  311  141  121
+ Torsion        42-CG2   119-CG2   120-CG2    53-HGR       118  117  121  244
+ Torsion        42-CG2   119-CG2   120-CG2   121-CG2       118  117  121  141
+ Torsion        95-HGR   119-CG2   120-CG2    53-HGR       242  117  121  244
+ Torsion        95-HGR   119-CG2   120-CG2   121-CG2       242  117  121  141
+ Torsion        53-HGR   120-CG2   121-CG2    88-CG2       244  121  141  142
+ Torsion        53-HGR   120-CG2   121-CG2   115-NG3       244  121  141  311
+ Torsion       119-CG2   120-CG2   121-CG2    88-CG2       117  121  141  142
+ Torsion       119-CG2   120-CG2   121-CG2   115-NG3       117  121  141  311
+
