@@ -29,11 +29,14 @@ Now, you have everything that you need to generate the qchem input file.
 8. open *merged.xyz and enter total atom number and an empty line after, save that change
 9. python qmmm_inpgen.py sample.qmmm.inp *_merged.xyz q001.**.xyz.inp
 
+Submit q001.**.xyz.inp through a SLURM script like any typical Q-Chem job
+
 ** For any new xyz file (same system), MM params will be unchanged. Just you have to make the txyz file for it and create qchem input using the following procedure
-source ~/bin/setupbcat
-babel file.xyz file.txyz
-python gen_txyz.py file.txyz matched_atoms.prm newfile.txyz
-create *.cart.xyz and *.cart.txyz with just the coordinates and connectivity (no total atom numbers and empty lines)
-./mergeconnectivity.sh *.cart.txyz *.cart.xyz (generates coords.txt, connectivity.txt, *merged.xyz)
-open *merged.xyz and enter total atom number and an empty line after, save that change
-python qmmm_inpgen.py sample.qmmm.inp *_merged.xyz q00n.**.xyz.inp
+i. source ~/bin/setupbcat
+ii. babel file.xyz file.txyz
+iii. python gen_txyz.py file.txyz matched_atoms.prm newfile.txyz
+iv. create *.cart.xyz and *.cart.txyz with just the coordinates and connectivity (no total atom numbers and empty lines)
+v. ./mergeconnectivity.sh *.cart.txyz *.cart.xyz (generates coords.txt, connectivity.txt, *merged.xyz)
+vi. open *merged.xyz and enter total atom number and an empty line after, save that change
+vii. python qmmm_inpgen.py sample.qmmm.inp *_merged.xyz q00n.**.xyz.inp
+

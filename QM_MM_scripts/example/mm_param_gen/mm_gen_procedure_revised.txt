@@ -7,7 +7,7 @@ source ~/setupbcat
 babel file.xyz file.mol2        # that is for cgenff
 babel file.xyz file.txyz # that is for tinker format and connectivity
 
-module load cgenff/2018.2
+module load cgenff/2024.1
 
 cgenff -a -f <outfile.rtf> file.mol2 � produce all parameters from cgenFF36 without LG
 
@@ -15,7 +15,7 @@ python tmpAtoms.py <outfile.rtf> (generates tmpAtoms.prm & lgAtoms.prm & atoms.p
 sort -u tmpAtoms.prm  > atomTypes.prm and moify atomTypes.prm to include newTypes (of your choice) as a third column
 cp lgAtoms.prm tmp && sort -u tmp > lgAtoms.prm && rm -f tmp
 
-./getLG.sh lgAtoms.prm allLG_cgenff36.prm
+./getLG.sh lgAtoms.prm allLG_cgenff36.prm (generates lgatoms.rtf)
 
 python match_atoms.py atomTypes.prm
 python gen_txyz.py file.txyz matched_atoms.prm newfile.txyz (modifies the txyz file to include the newTypes from matched_atoms.prm instead of the old(MM2)-type)
