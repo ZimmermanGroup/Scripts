@@ -51,13 +51,14 @@ if len(sys.argv) <= 1:
             text_list = read_text.split("\n")
             index = 0
             for text in text_list:
-                if "**  OPTIMIZATION CONVERGED  **" in text:
+                if "OPTIMIZATION CONVERGED" in text:
                     energy_index = index - 3
-                if "Standard Nuclear Orientation (Angstroms)" in text:
-                    start_index = index + 3
-                if "Nuclear Repulsion Energy" in text:
+                if "Step" in text:
+                    start_index = index + 1
+                if "END OF MOLDEN-FORMATTED INPUT FILE" in text:
                     end_index = index - 1
                 index += 1
+
             coord_list = text_list[start_index:end_index]
             
             energy_string = text_list[energy_index]
@@ -67,8 +68,10 @@ if len(sys.argv) <= 1:
             
             for coord in coord_list:
                 coord_string = str(coord)
-                optxyz.write(coord_string[11:])
+                optxyz.write(coord_string)
                 optxyz.write("\n")
+
+            optxyz.write("\n")
 
     print("Success !! Open FinalOptXYZ.txt to get the optimized xyz coordinates")
 
@@ -93,13 +96,14 @@ else:
             text_list = read_text.split("\n")
             index = 0
             for text in text_list:
-                if "**  OPTIMIZATION CONVERGED  **" in text:
+                if "OPTIMIZATION CONVERGED" in text:
                     energy_index = index - 3
-                if "Standard Nuclear Orientation (Angstroms)" in text:
-                    start_index = index + 3
-                if "Nuclear Repulsion Energy" in text:
+                if "Step" in text:
+                    start_index = index + 1
+                if "END OF MOLDEN-FORMATTED INPUT FILE" in text:
                     end_index = index - 1
                 index += 1
+
             coord_list = text_list[start_index:end_index]
             
             energy_string = text_list[energy_index]
@@ -109,7 +113,7 @@ else:
             
             for coord in coord_list:
                 coord_string = str(coord)
-                optxyz.write(coord_string[11:])
+                optxyz.write(coord_string)
                 optxyz.write("\n")
             
     print("Optimized XYZ coordinates generated successfully !!")
