@@ -49,16 +49,16 @@ if len(sys.argv) <= 1:
             optxyz.write(item_name)
             optxyz.write("\n")
             text_list = read_text.split("\n")
-            index = 0
-            for text in text_list:
+            
+            for idx, text in enumerate(text_list):
                 if "TRANSITION STATE CONVERGED" in text:
-                    energy_index = index - 3
-                if "Step" in text:
-                    start_index = index + 1
-                if "END OF MOLDEN-FORMATTED INPUT FILE" in text:
-                    end_index = index - 1
-                index += 1
-
+                    energy_index = idx - 3
+                    for jdx, text2 in enumerate(text_list[energy_index:]):
+                        if "Standard Nuclear Orientation (Angstroms)" in text2:
+                            start_index = energy_index + jdx + 3
+                        if "Z-matrix Print:" in text2:
+                            end_index = energy_index + jdx - 4
+            
             coord_list = text_list[start_index:end_index]
             
             energy_string = text_list[energy_index]
@@ -94,16 +94,16 @@ else:
             optxyz.write(str(out_file_name))
             optxyz.write("\n")
             text_list = read_text.split("\n")
-            index = 0
-            for text in text_list:
+            
+            for idx, text in enumerate(text_list):
                 if "TRANSITION STATE CONVERGED" in text:
-                    energy_index = index - 3
-                if "Step" in text:
-                    start_index = index + 1
-                if "END OF MOLDEN-FORMATTED INPUT FILE" in text:
-                    end_index = index - 1
-                index += 1
-
+                    energy_index = idx - 3
+                    for jdx, text2 in enumerate(text_list[energy_index:]):
+                        if "Standard Nuclear Orientation (Angstroms)" in text2:
+                            start_index = energy_index + jdx + 3
+                        if "Z-matrix Print:" in text2:
+                            end_index = energy_index + jdx - 4
+            
             coord_list = text_list[start_index:end_index]
             
             energy_string = text_list[energy_index]
