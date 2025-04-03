@@ -68,7 +68,7 @@ if len(sys.argv) <= 1:
             
             for coord in coord_list:
                 coord_string = str(coord)
-                optxyz.write(coord_string)
+                optxyz.write(coord_string[11:])
                 optxyz.write("\n")
 
             optxyz.write("\n")
@@ -113,7 +113,7 @@ else:
             
             for coord in coord_list:
                 coord_string = str(coord)
-                optxyz.write(coord_string)
+                optxyz.write(coord_string[11:])
                 optxyz.write("\n")
             
     print("Optimized XYZ coordinates generated successfully !!")
