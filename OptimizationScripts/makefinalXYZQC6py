@@ -1,6 +1,6 @@
 #!/export/apps/RockyOS8/anaconda/2024.02/bin/python
 
-# Script for getting the optimized XYZ's from a Q-Chem 6 output file
+# Script for getting the optimized XYZ's from a Q-Chem 6 Geometry Optimization output file
 #################################
 ##### Written by Soumik Das #####
 #################################

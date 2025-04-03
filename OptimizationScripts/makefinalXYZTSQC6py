@@ -1,6 +1,6 @@
 #!/export/apps/RockyOS8/anaconda/2024.02/bin/python
 
-# Script for getting the optimized XYZ's from a Q-Chem 5.2 geomOpt and TSOpt output file
+# Script for getting the optimized XYZ's from a Q-Chem 6 TS-Optimization output file
 #################################
 ##### Written by Soumik Das #####
 #################################
@@ -45,26 +45,32 @@ if len(sys.argv) <= 1:
         item_name = str(item)
         out_file = open(item_name, 'r', errors='ignore')
         read_text = out_file.read()
-        if "OPTIMIZATION CONVERGED" in read_text:
+        if "TRANSITION STATE CONVERGED" in read_text:
             optxyz.write(item_name)
             optxyz.write("\n")
             text_list = read_text.split("\n")
             index = 0
             for text in text_list:
-                if "**  OPTIMIZATION CONVERGED  **" in text:
-                    start_index = index + 5
-                if "Z-matrix Print:" in text:
+                if "TRANSITION STATE CONVERGED" in text:
+                    energy_index = index - 3
+                if "Step" in text:
+                    start_index = index + 1
+                if "END OF MOLDEN-FORMATTED INPUT FILE" in text:
                     end_index = index - 1
                 index += 1
+
             coord_list = text_list[start_index:end_index]
-            energy_string = text_list[(start_index-9):(start_index-8)]
-            for string in energy_string:
-                optxyz.write(str(string)[1:])
+            
+            energy_string = text_list[energy_index]
+
+            optxyz.write(energy_string[1:])
             optxyz.write("\n\n")
+            
             for coord in coord_list:
                 coord_string = str(coord)
-                optxyz.write(coord_string[9:])
+                optxyz.write(coord_string)
                 optxyz.write("\n")
+
             optxyz.write("\n")
 
     print("Success !! Open FinalOptXYZ.txt to get the optimized xyz coordinates")
@@ -84,25 +90,30 @@ else:
 
     optxyz = open(str(optxyz_file_name), 'w+')
 
-    if "OPTIMIZATION CONVERGED" in read_text:
+    if "TRANSITION STATE CONVERGED" in read_text:
             optxyz.write(str(out_file_name))
             optxyz.write("\n")
             text_list = read_text.split("\n")
             index = 0
             for text in text_list:
-                if "**  OPTIMIZATION CONVERGED  **" in text:
-                    start_index = index + 5
-                if "Z-matrix Print:" in text:
+                if "TRANSITION STATE CONVERGED" in text:
+                    energy_index = index - 3
+                if "Step" in text:
+                    start_index = index + 1
+                if "END OF MOLDEN-FORMATTED INPUT FILE" in text:
                     end_index = index - 1
                 index += 1
+
             coord_list = text_list[start_index:end_index]
-            energy_string = text_list[(start_index-9):(start_index-8)]
-            for string in energy_string:
-                optxyz.write(str(string)[1:])
+            
+            energy_string = text_list[energy_index]
+
+            optxyz.write(energy_string[1:])
             optxyz.write("\n\n")
+            
             for coord in coord_list:
                 coord_string = str(coord)
-                optxyz.write(coord_string[9:])
+                optxyz.write(coord_string)
                 optxyz.write("\n")
             
     print("Optimized XYZ coordinates generated successfully !!")
